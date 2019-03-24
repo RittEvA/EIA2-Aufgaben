@@ -1,7 +1,7 @@
 function YourName(){
     document.getElementById("Text").innerHTML="";
-    var Name = prompt("dein Name");
-    if (Name==0){
+    var Name = prompt("Nanu, wer bist den Du?");
+    if (Name==null){
         console.log("Sie haben den Vorgang abgebrochen");
     }
     else if(Name==""){
@@ -9,6 +9,6 @@ function YourName(){
     }
     else{
         console.log("Halli Hallo," + Name +"! Wie schön das Sie mich besuchen.");
-        document.getElementById("Text").innerHTML="Hallöchen<div class='YourName'>"+Name+"</div>. Danke für Ihren"
+        document.getElementById("Text").innerHTML="Halli Hallo, <span>"+Name+"</span>! Wie schön das Sie mich besuchen."
     }
 }
