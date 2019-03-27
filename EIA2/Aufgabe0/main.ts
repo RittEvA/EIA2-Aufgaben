@@ -1,6 +1,6 @@
 function YourName(){
     document.getElementById("Text").innerHTML="";
-    var callName:string = prompt("Nanu, wer bist den Du?");
+    let callName:string = prompt("Nanu, wer bist den Du?");
     if (callName==null){
         console.log("Sie haben den Vorgang abgebrochen");
     }
