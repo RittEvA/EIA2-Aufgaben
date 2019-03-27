@@ -1,14 +1,14 @@
 function YourName(){
     document.getElementById("Text").innerHTML="";
-    var CallName:string = prompt("Nanu, wer bist den Du?");
-    if (CallName==null){
+    var callName:string = prompt("Nanu, wer bist den Du?");
+    if (callName==null){
         console.log("Sie haben den Vorgang abgebrochen");
     }
-    else if(CallName==""){
+    else if(callName==""){
         alert("Wie heißen Sie denn?");
     }
     else{
-        console.log("Halli Hallo," + CallName +"! Wie schön das Sie mich besuchen.");
-        document.getElementById("Text").innerHTML="Halli Hallo, <span>"+CallName+"</span>! Wie schön, dass Sie mich besuchen."
+        console.log("Halli Hallo," + callName +"! Wie schön das Sie mich besuchen.");
+        document.getElementById("Text").innerHTML="Halli Hallo, <span>"+callName+"</span>! Wie schön, dass Sie mich besuchen."
     }
 }
