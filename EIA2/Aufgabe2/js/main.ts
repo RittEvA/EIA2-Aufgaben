@@ -132,20 +132,20 @@ let blattSieben:Karte={
 }
 
 let Deck:Karte[]=[herzAcht,herzAss,herzBube,herzDame,herzKönig,herzNeun,herzSieben,herzZehn,karoAcht,karoAss,karoBube,karoDame,karoKönig,karoNeun,karoSieben,karoZehn,kreuzAcht,kreuzAss,kreuzBube,kreuzDame,kreuzKönig,kreuzNeun,kreuzSieben,kreuzZehn,blattAcht,blattAss,blattBube,blattDame,blattKönig,blattNeun,blattSieben,blattZehn]
+let Handkarten:Karte[]=[]
 
 let anzahlKarten:number=0;
 
-function wieVieleKarten(){
-    if(){
-        do (){
-            anzahlKarten
+function wieVieleKarten():number{
+    if(anzahlKarten==0){
+        let wieVieleGenau:number=parseInt(prompt("Wie viele Karten möchtest du spielen?", "..."));
+        do {
+            anzahlKarten=wieVielGenau;
         }
-    document.getElementById("Frage").innerHTML="";
-    let callName:string = prompt("Wie viele Karten möchtest du?");
-    }
-
-}
-let Handkarten:Karte[]=[]
-function vonDeckInHand(_j:number){
     
+}
+
+function vonDeckInHand(_j:number){
+    document.getElementById("Hand")
+    let prodElement = document.createElement('article');
 }
