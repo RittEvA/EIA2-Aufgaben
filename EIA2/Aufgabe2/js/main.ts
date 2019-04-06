@@ -147,5 +147,10 @@ function wieVieleKarten():number{
 
 function vonDeckInHand(_j:number){
     document.getElementById("Hand")
-    let prodElement = document.createElement('article');
+    let prodKarte = document.createElement('div');
+
+    for(let r:number=0; r=<_j; r++){
+        let kartenWahl:number=Math.floor(Math.random()*Deck.length-1)
+        Array.splice
+    }
 }
