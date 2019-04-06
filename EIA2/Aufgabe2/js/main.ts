@@ -3,6 +3,8 @@ Aufgabe: Mau Mau, Aufgabe2
 Name: Eva Ritt
 Matrikel: 261414
 Datum: 07.04.2019
+
+Code wurde in Zusammenarbeit mit Iven Otis Sieglen geschrieben
 */
 
 interface Karte{
