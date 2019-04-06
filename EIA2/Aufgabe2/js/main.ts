@@ -1,156 +1,229 @@
+/*
+Aufgabe: Mau Mau, Aufgabe2
+Name: Eva Ritt
+Matrikel: 261414
+Datum: 07.04.2019
+*/
+
 interface Karte{
     wert:string;
-    farbe:number;
+    farbe:string;
+    symbol:string;
 }
 let herzDame:Karte={
-    wert:'dame',
-    farbe:1,
+    wert:'./style/12Dame.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoDame:Karte={
-    wert:'dame',
-    farbe:2,
+    wert:'./style/12Dame.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzDame:Karte={
-    wert:'dame',
-    farbe:3,
+    wert:'./style/12Dame.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattDame:Karte={
-    wert:'dame',
-    farbe:4,
+    wert:'./style/12Dame.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzBube:Karte={
-    wert: 'bube',
-    farbe:1,
+    wert: './style/11Bube.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoBube:Karte={
-    wert: 'bube',
-    farbe:2,
+    wert: './style/11Bube.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzBube:Karte={
-    wert: 'bube',
-    farbe:3,
+    wert: './style/11Bube.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattBube:Karte={
-    wert: 'bube',
-    farbe:4,
+    wert: './style/11Bube.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzKönig:Karte={
-    wert: 'könig',
-    farbe:1,
+    wert: './style/13König.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoKönig:Karte={
-    wert: 'könig',
-    farbe:2,
+    wert: './style/13König.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzKönig:Karte={
-    wert: 'könig',
-    farbe:3,
+    wert: './style/13König.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattKönig:Karte={
-    wert: 'könig',
-    farbe:4,
+    wert: './style/13König.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzAss:Karte={
-    wert: 'ass',
-    farbe:1
+    wert: './style/14Ass.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoAss:Karte={
-    wert:'ass',
-    farbe:2,
+    wert:'./style/14Ass.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzAss:Karte={
-    wert:'ass',
-    farbe:3,
+    wert:'./style/14Ass.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattAss:Karte={
-    wert:'ass',
-    farbe:4,
+    wert:'./style/14Ass.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzZehn:Karte={
-    wert:'zehn',
-    farbe:1,
+    wert:'./style/10Krake.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoZehn:Karte={
-    wert:'zehn',
-    farbe:2,
+    wert:'./style/10Krake.png',
+    farbe:'rot',
+    symbol:'♦'
 }
 let kreuzZehn:Karte={
-    wert:'zehn',
-    farbe:3,
+    wert:'./style/10Krake.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattZehn:Karte={
-    wert:'zehn',
-    farbe:4,
+    wert:'./style/10Krake.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzNeun:Karte={
-    wert:'neun',
-    farbe:1,
+    wert:'./style/9Krake.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoNeun:Karte={
-    wert:'neun',
-    farbe:2,
+    wert:'./style/9Krake.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzNeun:Karte={
-    wert:'neun',
-    farbe:3,
+    wert:'./style/9Krake.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattNeun:Karte={
-    wert:'neun',
-    farbe:4,
+    wert:'./style/9Krake.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzAcht:Karte={
-    wert:'acht',
-    farbe:1,
+    wert:'./style/8Krake.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoAcht:Karte={
-    wert:'acht',
-    farbe:2,
+    wert:'./style/8Krake.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzAcht:Karte={
-    wert:'acht',
-    farbe:3,
+    wert:'./style/8Krake.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattAcht:Karte={
-    wert:'acht',
-    farbe:4,
+    wert:'./style/8Krake.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 let herzSieben:Karte={
-    wert:'sieben',
-    farbe:1,
+    wert:'./style/7Krake.png',
+    farbe:'rot',
+    symbol:'♥',
 }
 let karoSieben:Karte={
-    wert:'sieben',
-    farbe:2,
+    wert:'./style/7Krake.png',
+    farbe:'rot',
+    symbol:'♦',
 }
 let kreuzSieben:Karte={
-    wert:'sieben',
-    farbe:3,
+    wert:'./style/7Krake.png',
+    farbe:'schwarz',
+    symbol:'♣',
 }
 let blattSieben:Karte={
-    wert:'sieben',
-    farbe:4,
+    wert:'./style/7Krake.png',
+    farbe:'schwarz',
+    symbol:'♠',
 }
 
 let Deck:Karte[]=[herzAcht,herzAss,herzBube,herzDame,herzKönig,herzNeun,herzSieben,herzZehn,karoAcht,karoAss,karoBube,karoDame,karoKönig,karoNeun,karoSieben,karoZehn,kreuzAcht,kreuzAss,kreuzBube,kreuzDame,kreuzKönig,kreuzNeun,kreuzSieben,kreuzZehn,blattAcht,blattAss,blattBube,blattDame,blattKönig,blattNeun,blattSieben,blattZehn]
 let Handkarten:Karte[]=[]
 
 let anzahlKarten:number=0;
+let irgZahl:number;
 
-function wieVieleKarten():number{
+function wieVieleKarten(anzahlKarten:number):void{
     if(anzahlKarten==0){
-        let wieVieleGenau:number=parseInt(prompt("Wie viele Karten möchtest du spielen?", "..."));
         do {
-            anzahlKarten=wieVielGenau;
-        }
+            anzahlKarten=parseInt(prompt("Mit wie viele Karten möchtest du spielen?", "..."));
+        }while (anzahlKarten==0|| anzahlKarten<1 || anzahlKarten>32);
+    }   
+    irgendEineZahl(anzahlKarten); 
     
 }
+function irgendEineZahl(_anzahlKarten:number){
+    for(let e:number=0;_anzahlKarten>e;_anzahlKarten--){
+        anzahl(irgZahl, _anzahlKarten);
+        Handkarten.push(Deck.splice(irgZahl, 1)[0]);
+        console.log(Handkarten);
+    }
+    bauKarte();
 
-function vonDeckInHand(_j:number){
-    document.getElementById("Hand")
-    let prodKarte = document.createElement('div');
+}
+function anzahl(_s:number,_t:number):number{
+    let max=Deck.length;
+    _s = Math.floor(Math.random()*Math.floor(max));
+    return irgZahl= _s;
+}
 
-    for(let r:number=0; r=<_j; r++){
-        let kartenWahl:number=Math.floor(Math.random()*Deck.length-1)
-        Array.splice
+
+function bauKarte():void{
+    let n:number=0;
+    while(n < Handkarten.length){
+        aufbauen('Hand',Handkarten[n]);
+        n++;
     }
 }
+function aufbauen(html:string, _eineKarte:Karte){
+    let _Karte=document.createElement('div');
+    let div=`<div class="Karte">
+            <p class="${_eineKarte.farbe}">${_eineKarte.symbol}</p>
+            <img class="Bild" src="${_eineKarte.wert}"></img>
+            </div>`;
+        _Karte.innerHTML = div;
+        document.getElementById(html).appendChild(_Karte);
+}
+function init(){
+    wieVieleKarten(anzahlKarten)
+}
+document.addEventListener('DOMContentLoaded', init);
+
+
+
+
+

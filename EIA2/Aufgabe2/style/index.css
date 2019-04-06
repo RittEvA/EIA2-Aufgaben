@@ -1,0 +1,75 @@
+/*body div{
+    width: 14em;
+    height: 18em;
+    background-color: white;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+}*/
+#Talon{width: 14em;
+    height: 18em;
+    background-color:grey;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+    clear:both;
+}
+#Ablagestapel{
+    width: 14em;
+    height: 18em;
+    background-color:lightgray;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+    clear:both;
+}
+
+body div div div{
+    width: 13em;
+    height: 18em;
+    background-color: white;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+}
+
+.Bild{
+    position:absolute;
+        left:0.3em;
+        top: 3em;
+        right: 0.3em;
+    width:12em;
+}
+.rot{
+    color: red;
+}
+.schwarz{
+    color: black;
+}
+body div div div p{
+    position:absolute;
+        left:6em;
+        top: 0.5em;
+        
+    width:3em;
+}
