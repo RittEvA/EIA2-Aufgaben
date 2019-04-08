@@ -188,19 +188,19 @@ function wieVieleKarten(anzahlKarten:number):void{
     irgendEineZahl(anzahlKarten); 
     
 }
-function irgendEineZahl(_anzahlKarten:number){
+function irgendEineZahl(_anzahlKarten:number):void{
     for(let e:number=0;_anzahlKarten>e;_anzahlKarten--){
-        anzahl(irgZahl, _anzahlKarten);
+        anzahl();
         Handkarten.push(Deck.splice(irgZahl, 1)[0]);
         console.log(Handkarten);
     }
     bauKarte();
 
 }
-function anzahl(_s:number,_t:number):number{
+function anzahl():number{
     let max=Deck.length;
-    _s = Math.floor(Math.random()*Math.floor(max));
-    return irgZahl= _s;
+    irgZahl = Math.floor(Math.random()*Math.floor(max));
+    return irgZahl;
 }
 
 
@@ -211,7 +211,7 @@ function bauKarte():void{
         n++;
     }
 }
-function aufbauen(html:string, _eineKarte:Karte){
+function aufbauen(html:string, _eineKarte:Karte):void{
     let _Karte=document.createElement('div');
     let div=`<div class="Karte">
             <p class="${_eineKarte.farbe}">${_eineKarte.symbol}</p>
@@ -220,7 +220,7 @@ function aufbauen(html:string, _eineKarte:Karte){
         _Karte.innerHTML = div;
         document.getElementById(html).appendChild(_Karte);
 }
-function init(){
+function init():void{
     wieVieleKarten(anzahlKarten)
 }
 document.addEventListener('DOMContentLoaded', init);
