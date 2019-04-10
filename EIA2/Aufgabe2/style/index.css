@@ -3,6 +3,9 @@ Name: Eva Ritt
 Matrikel: 261414
 Datum: 07.04.2019
 */
+body{
+    background-color:gainsboro;
+}
 #Talon{width: 14em;
     height: 18em;
     background-color:grey;
@@ -19,7 +22,7 @@ Datum: 07.04.2019
 #Ablagestapel{
     width: 14em;
     height: 18em;
-    background-color:lightgray;
+    background-color:darkgray;
     display: flex;
     float: left;
     position:relative;
@@ -60,8 +63,17 @@ body div div div{
 }
 body div div div p{
     position:absolute;
-        left:6em;
-        top: 0.5em;
+        left:2.8em;
+        top: 0.02em;
         
-    width:3em;
+    width:2em;
+    font-size: 2em;
+}
+body div div div img+p{
+    position:absolute;
+        left:2.8em;
+        bottom: 4px;
+        
+    width:2em;
+    font-size: 2em;
 }
