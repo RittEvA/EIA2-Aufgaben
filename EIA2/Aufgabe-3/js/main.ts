@@ -230,7 +230,7 @@ document.getElementById('SortButton').addEventListener('click', sortieren);
     if(anzahlKarten==0){
         do {
             anzahlKarten=parseInt(prompt("Mit wie viele Karten möchtest du spielen?", "..."));
-        }while (isNaN(anzahlKarten) && anzahlKarten>0 && anzahlKarten<32) ;
+        }while (isNaN(anzahlKarten) || anzahlKarten<1 || anzahlKarten>32);
     }   
     irgendEineZahl(anzahlKarten); 
     
