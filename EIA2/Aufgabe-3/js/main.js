@@ -12,201 +12,202 @@ var MauMau;
         name: 5,
         wert: './style/12Dame.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: 'D♥',
     };
     let karoDame = {
         name: 13,
         wert: './style/12Dame.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: 'D♦',
     };
     let kreuzDame = {
         name: 21,
         wert: './style/12Dame.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: 'D♣',
     };
     let blattDame = {
         name: 29,
         wert: './style/12Dame.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: 'D♠',
     };
     let herzBube = {
         name: 4,
         wert: './style/11Bube.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: 'B♥',
     };
     let karoBube = {
         name: 12,
         wert: './style/11Bube.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: 'B♦',
     };
     let kreuzBube = {
         name: 20,
         wert: './style/11Bube.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: 'B♣',
     };
     let blattBube = {
         name: 28,
         wert: './style/11Bube.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: 'B♠',
     };
     let herzKönig = {
         name: 6,
         wert: './style/13König.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: 'K♥',
     };
     let karoKönig = {
         name: 14,
         wert: './style/13König.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: 'K♦',
     };
     let kreuzKönig = {
         name: 22,
         wert: './style/13König.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: 'K♣',
     };
     let blattKönig = {
         name: 30,
         wert: './style/13König.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: 'K♠',
     };
     let herzAss = {
         name: 7,
         wert: './style/14Ass.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: 'A♥',
     };
     let karoAss = {
         name: 15,
         wert: './style/14Ass.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: 'A♦',
     };
     let kreuzAss = {
         name: 23,
         wert: './style/14Ass.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: 'A♣',
     };
     let blattAss = {
         name: 31,
         wert: './style/14Ass.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: 'A♠',
     };
     let herzZehn = {
         name: 3,
         wert: './style/10Krake.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: '10♥',
     };
     let karoZehn = {
         name: 11,
         wert: './style/10Krake.png',
         farbe: 'rot',
-        symbol: '♦'
+        symbol: '10♦'
     };
     let kreuzZehn = {
         name: 19,
         wert: './style/10Krake.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: '10♣',
     };
     let blattZehn = {
         name: 27,
         wert: './style/10Krake.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: '10♠',
     };
     let herzNeun = {
         name: 2,
         wert: './style/9Krake.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: '9♥',
     };
     let karoNeun = {
         name: 10,
         wert: './style/9Krake.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: '9♦',
     };
     let kreuzNeun = {
         name: 18,
         wert: './style/9Krake.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: '9♣',
     };
     let blattNeun = {
         name: 26,
         wert: './style/9Krake.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: '9♠',
     };
     let herzAcht = {
         name: 1,
         wert: './style/8Krake.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: '8♥',
     };
     let karoAcht = {
         name: 9,
         wert: './style/8Krake.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: '8♦',
     };
     let kreuzAcht = {
         name: 17,
         wert: './style/8Krake.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: '8♣',
     };
     let blattAcht = {
         name: 25,
         wert: './style/8Krake.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: '8♠',
     };
     let herzSieben = {
         name: 0,
         wert: './style/7Krake.png',
         farbe: 'rot',
-        symbol: '♥',
+        symbol: '7♥',
     };
     let karoSieben = {
         name: 8,
         wert: './style/7Krake.png',
         farbe: 'rot',
-        symbol: '♦',
+        symbol: '7♦',
     };
     let kreuzSieben = {
         name: 16,
         wert: './style/7Krake.png',
         farbe: 'schwarz',
-        symbol: '♣',
+        symbol: '7♣',
     };
     let blattSieben = {
         name: 24,
         wert: './style/7Krake.png',
         farbe: 'schwarz',
-        symbol: '♠',
+        symbol: '7♠',
     };
     //Arrays
     let deck = [herzAcht, herzAss, herzBube, herzDame, herzKönig, herzNeun, herzSieben, herzZehn, karoAcht, karoAss, karoBube, karoDame, karoKönig, karoNeun, karoSieben, karoZehn, kreuzAcht, kreuzAss, kreuzBube, kreuzDame, kreuzKönig, kreuzNeun, kreuzSieben, kreuzZehn, blattAcht, blattAss, blattBube, blattDame, blattKönig, blattNeun, blattSieben, blattZehn];
     let handkarten = [];
-    //let gespielt:Karte[]=[]
+    let gespielt = [];
     //Variablen
     let anzahlKarten = 0;
     let irgZahl; //freie Zahl um eine wahllose Karte zu bauen
+    //Eventlistener aktivieren
     document.getElementById('Hand').addEventListener('click', karteLegen);
     document.getElementById('Talon').addEventListener('click', karteZiehen);
     document.addEventListener('keydown', event => {
@@ -218,16 +219,13 @@ var MauMau;
         }
     });
     document.getElementById('SortButton').addEventListener('click', sortieren);
-    document.addEventListener('DOMContentLoaded', init);
     //fragt wie viele Karten man haben möchte
-    function wieVieleKarten(anzahlKarten) {
-        if (anzahlKarten == 0) {
-            do {
-                anzahlKarten = parseInt(prompt("Mit wie viele Karten möchtest du spielen??", "..."));
-            } while (isNaN(anzahlKarten) || anzahlKarten >= 1 || anzahlKarten < 32);
-        }
-        irgendEineZahl(anzahlKarten);
+    if (anzahlKarten == 0) {
+        do {
+            anzahlKarten = parseInt(prompt("Mit wie viele Karten möchtest du spielen?", "..."));
+        } while (isNaN(anzahlKarten) && anzahlKarten > 0 && anzahlKarten < 32);
     }
+    irgendEineZahl(anzahlKarten);
     //wählt eine Zahl und gibt es an bauKarte weiter
     function irgendEineZahl(_anzahlKarten) {
         for (let e = 0; _anzahlKarten > e; _anzahlKarten--) {
@@ -261,28 +259,27 @@ var MauMau;
         _Karte.innerHTML = div;
         document.getElementById(_html).appendChild(_Karte);
     }
-    //startet den ersten durch lauf des Aufbauens
-    function init() {
-        wieVieleKarten(anzahlKarten);
-    }
     //eine Karte von Deck in Handkarten
     function karteZiehen() {
-        alert("Karte ziehen");
         if (deck.length > 0) {
             anzahl();
-            let prodElement = document.createElement('div');
-            document.getElementById("Handkarten").appendChild(prodElement);
             handkarten.push(deck.splice(irgZahl, 1)[0]);
             console.log(handkarten);
-            bauKarte();
+            let n = handkarten.length - 1;
+            aufbauen('Hand', handkarten[n]);
         }
         else {
             console.log('Es sind keine Karten auf dem Nachziehstapel vorhanden!');
             alert('Es sind keine Karten auf dem Nachziehstapel vorhanden!');
         }
     }
+    function loeschen() {
+        let clear = document.getElementById("Hand");
+        clear.innerHTML = "";
+    }
     //sortiert die Karten nach .name
     function sortieren() {
+        loeschen();
         handkarten.sort(function (a, b) {
             let nameA = a.name;
             let nameB = b.name;
@@ -298,6 +295,30 @@ var MauMau;
         bauKarte();
     }
     //Karte von der Hand auf den Ablegestapel
-    function karteLegen() { }
+    function karteLegen(event) {
+        let legKarte = event.target;
+        for (let e = 0; e < handkarten.length; e++) {
+            if (Number(legKarte.getAttribute("id")) == handkarten[e].name) {
+                gespielt.push(handkarten.splice(e, 1)[0]);
+                let r = gespielt.length;
+                anzeigeLegKarte('Ablagestapel', gespielt[r - 1]);
+            }
+        }
+    }
+    //baut Karte auf dem Ablagestapel auf
+    function anzeigeLegKarte(_htmlID, _gelegteKarte) {
+        document.getElementById(_htmlID).innerHTML = "";
+        let karteFertig = document.createElement('div');
+        let div = `<div class="Karte" id=${_gelegteKarte.name}>
+        <p class="${_gelegteKarte.farbe}">${_gelegteKarte.symbol}</p>
+        <img class="Bild" src="${_gelegteKarte.wert}"></img>
+        </div>`;
+        karteFertig.innerHTML = div;
+        document.getElementById(_htmlID).appendChild(karteFertig);
+        loeschen();
+        var audio = new Audio('./style/Ablegen.mp3');
+        audio.play();
+        bauKarte();
+    }
 })(MauMau || (MauMau = {}));
 //# sourceMappingURL=main.js.map
