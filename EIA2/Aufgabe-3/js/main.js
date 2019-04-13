@@ -266,6 +266,8 @@ var MauMau;
             handkarten.push(deck.splice(irgZahl, 1)[0]);
             console.log(handkarten);
             let n = handkarten.length - 1;
+            var audio = new Audio('./style/Ablegen.mp3');
+            audio.play();
             aufbauen('Hand', handkarten[n]);
         }
         else {
@@ -307,6 +309,8 @@ var MauMau;
     }
     //baut Karte auf dem Ablagestapel auf
     function anzeigeLegKarte(_htmlID, _gelegteKarte) {
+        var audio = new Audio('./style/Ablegen.mp3');
+        audio.play();
         document.getElementById(_htmlID).innerHTML = "";
         let karteFertig = document.createElement('div');
         let div = `<div class="Karte" id=${_gelegteKarte.name}>
@@ -316,8 +320,6 @@ var MauMau;
         karteFertig.innerHTML = div;
         document.getElementById(_htmlID).appendChild(karteFertig);
         loeschen();
-        var audio = new Audio('./style/Ablegen.mp3');
-        audio.play();
         bauKarte();
     }
 })(MauMau || (MauMau = {}));
