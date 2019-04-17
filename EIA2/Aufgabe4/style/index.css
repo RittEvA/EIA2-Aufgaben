@@ -1,0 +1,86 @@
+/*Aufgabe: Mau Mau, Aufgabe2
+Name: Eva Ritt
+Matrikel: 261414
+Datum: 07.04.2019
+*/
+body{
+    background-color:gainsboro;
+}
+#Talon{width: 14em;
+    height: 18em;
+    background-color:grey;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+    clear:both;
+}
+#Talon:hover{
+    box-shadow: 0.6em 1em 1em 0.6em gray;
+}
+#Ablagestapel{
+    width: 14em;
+    height: 18em;
+    background-color:darkgray;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+    clear:both;
+}
+
+body div div div{
+    width: 13em;
+    height: 18em;
+    background-color: white;
+    display: flex;
+    float: left;
+    position:relative;
+    margin-top: 2em;
+    margin-left:0.5em;
+    margin-right: 0.5em;
+    border-radius: 0.7em;
+    box-shadow: 0em 0.6em 0.6em 0em grey;
+    
+}
+
+body div div div:hover{
+    box-shadow: 0.6em 1em 1em 0.6em grey;
+}
+.Bild{
+    position:absolute;
+        left:0.3em;
+        top: 3em;
+        right: 0.3em;
+    width:12em;
+}
+.rot{
+    color: red;
+}
+.schwarz{
+    color: black;
+}
+body div div div p{
+    position:absolute;
+        left:2.7em;
+        top: 0em;
+        
+    width:2em;
+    font-size: 2em;
+}
+body div div div img+p{
+    position:absolute;
+        left:2.8em;
+        bottom: 4px;
+        
+    width:2em;
+    font-size: 2em;
+}

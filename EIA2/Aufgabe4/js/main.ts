@@ -11,199 +11,199 @@ interface Karte{
     name:number;
     wert:string;
     farbe:string;
-    symbol:string;
+    kartenSymbol:string;
 }
 let herzDame:Karte={
     name:5,
     wert:'./style/12Dame.png',
     farbe:'rot',
-    symbol:'D♥',
+    kartenSymbol:'D♥',
 }
 let karoDame:Karte={
     name:13,
     wert:'./style/12Dame.png',
     farbe:'rot',
-    symbol:'D♦',
+    kartenSymbol:'D♦',
 }
 let kreuzDame:Karte={
     name:21,
     wert:'./style/12Dame.png',
     farbe:'schwarz',
-    symbol:'D♣',
+    kartenSymbol:'D♣',
 }
 let blattDame:Karte={
     name:29,
     wert:'./style/12Dame.png',
     farbe:'schwarz',
-    symbol:'D♠' ,
+    kartenSymbol:'D♠' ,
 }
 let herzBube:Karte={
     name:4,
     wert: './style/11Bube.png',
     farbe:'rot',
-    symbol:'B♥',
+    kartenSymbol:'B♥',
 }
 let karoBube:Karte={
     name:12,
     wert: './style/11Bube.png',
     farbe:'rot',
-    symbol:'B♦',
+    kartenSymbol:'B♦',
 }
 let kreuzBube:Karte={
     name:20,
     wert: './style/11Bube.png',
     farbe:'schwarz',
-    symbol:'B♣',
+    kartenSymbol:'B♣',
 }
 let blattBube:Karte={
     name:28,
     wert: './style/11Bube.png',
     farbe:'schwarz',
-    symbol:'B♠',
+    kartenSymbol:'B♠',
 }
 let herzKönig:Karte={
     name:6,
     wert: './style/13König.png',
     farbe:'rot',
-    symbol:'K♥',
+    kartenSymbol:'K♥',
 }
 let karoKönig:Karte={
     name:14,
     wert: './style/13König.png',
     farbe:'rot',
-    symbol:'K♦',
+    kartenSymbol:'K♦',
 }
 let kreuzKönig:Karte={
     name:22,
     wert: './style/13König.png',
     farbe:'schwarz',
-    symbol:'K♣',
+    kartenSymbol:'K♣',
 }
 let blattKönig:Karte={
     name:30,
     wert: './style/13König.png',
     farbe:'schwarz',
-    symbol:'K♠',
+    kartenSymbol:'K♠',
 }
 let herzAss:Karte={
     name:7,
     wert: './style/14Ass.png',
     farbe:'rot',
-    symbol:'A♥',
+    kartenSymbol:'A♥',
 }
 let karoAss:Karte={
     name:15,
     wert:'./style/14Ass.png',
     farbe:'rot',
-    symbol:'A♦',
+    kartenSymbol:'A♦',
 }
 let kreuzAss:Karte={
     name:23,
     wert:'./style/14Ass.png',
     farbe:'schwarz',
-    symbol:'A♣',
+    kartenSymbol:'A♣',
 }
 let blattAss:Karte={
     name:31,
     wert:'./style/14Ass.png',
     farbe:'schwarz',
-    symbol:'A♠',
+    kartenSymbol:'A♠',
 }
 let herzZehn:Karte={
     name:3,
     wert:'./style/10Krake.png',
     farbe:'rot',
-    symbol:'10♥',
+    kartenSymbol:'10♥',
 }
 let karoZehn:Karte={
     name:11,
     wert:'./style/10Krake.png',
     farbe:'rot',
-    symbol:'10♦'
+    kartenSymbol:'10♦'
 }
 let kreuzZehn:Karte={
     name:19,
     wert:'./style/10Krake.png',
     farbe:'schwarz',
-    symbol:'10♣',
+    kartenSymbol:'10♣',
 }
 let blattZehn:Karte={
     name:27,
     wert:'./style/10Krake.png',
     farbe:'schwarz',
-    symbol:'10♠',
+    kartenSymbol:'10♠',
 }
 let herzNeun:Karte={
     name:2,
     wert:'./style/9Krake.png',
     farbe:'rot',
-    symbol:'9♥',
+    kartenSymbol:'9♥',
 }
 let karoNeun:Karte={
     name:10,
     wert:'./style/9Krake.png',
     farbe:'rot',
-    symbol:'9♦',
+    kartenSymbol:'9♦',
 }
 let kreuzNeun:Karte={
     name:18,
     wert:'./style/9Krake.png',
     farbe:'schwarz',
-    symbol:'9♣',
+    kartenSymbol:'9♣',
 }
 let blattNeun:Karte={
     name:26,
     wert:'./style/9Krake.png',
     farbe:'schwarz',
-    symbol:'9♠',
+    kartenSymbol:'9♠',
 }
 let herzAcht:Karte={
     name:1,
     wert:'./style/8Krake.png',
     farbe:'rot',
-    symbol:'8♥',
+    kartenSymbol:'8♥',
 }
 let karoAcht:Karte={
     name:9,
     wert:'./style/8Krake.png',
     farbe:'rot',
-    symbol:'8♦',
+    kartenSymbol:'8♦',
 }
 let kreuzAcht:Karte={
     name:17,
     wert:'./style/8Krake.png',
     farbe:'schwarz',
-    symbol:'8♣',
+    kartenSymbol:'8♣',
 }
 let blattAcht:Karte={
     name:25,
     wert:'./style/8Krake.png',
     farbe:'schwarz',
-    symbol:'8♠',
+    kartenSymbol:'8♠',
 }
 let herzSieben:Karte={
     name:0,
     wert:'./style/7Krake.png',
     farbe:'rot',
-    symbol:'7♥',
+    kartenSymbol:'7♥',
 }
 let karoSieben:Karte={
     name:8,
     wert:'./style/7Krake.png',
     farbe:'rot',
-    symbol:'7♦',
+    kartenSymbol:'7♦',
 }
 let kreuzSieben:Karte={
     name:16,
     wert:'./style/7Krake.png',
     farbe:'schwarz',
-    symbol:'7♣',
+    kartenSymbol:'7♣',
 }
 let blattSieben:Karte={
     name:24,
     wert:'./style/7Krake.png',
     farbe:'schwarz',
-    symbol:'7♠',
+    kartenSymbol:'7♠',
 }
 //Arrays
 let deck:Karte[]=[herzAcht,herzAss,herzBube,herzDame,herzKönig,herzNeun,herzSieben,herzZehn,karoAcht,karoAss,karoBube,karoDame,karoKönig,karoNeun,karoSieben,karoZehn,kreuzAcht,kreuzAss,kreuzBube,kreuzDame,kreuzKönig,kreuzNeun,kreuzSieben,kreuzZehn,blattAcht,blattAss,blattBube,blattDame,blattKönig,blattNeun,blattSieben,blattZehn]
@@ -213,7 +213,10 @@ let gespielt:Karte[]=[]
 //Variablen
 let anzahlKarten:number=0;
 let irgZahl:number; //freie Zahl um eine wahllose Karte zu bauen
-let audio:HTMLAudioElement = new Audio('./style/Ablegen.mp3');
+let audio = new Audio('./style/Ablegen.mp3');
+let a:string="lkadnfa";
+let sub= a.substring(a.length-3, a.length);
+alert(sub)
 
 //Eventlistener aktivieren
 document.getElementById('Hand').addEventListener('click', karteLegen);
@@ -265,7 +268,7 @@ function bauKarte():void{
 function aufbauen(_html:string, _eineKarte:Karte):void{
     let _Karte=document.createElement('div');
     let div=`<div class="Karte" id=${_eineKarte.name}>
-            <p class="${_eineKarte.farbe}">${_eineKarte.symbol}</p>
+            <p class="${_eineKarte.farbe}">${_eineKarte.kartenSymbol}</p>
             <img class="Bild" src="${_eineKarte.wert}"></img>
             </div>`;
         _Karte.innerHTML = div;
@@ -325,9 +328,9 @@ function karteLegen(event:Event):void{
 function anzeigeLegKarte(_htmlID:string, _gelegteKarte:Karte):void{
     audio.play();
     document.getElementById(_htmlID).innerHTML="";
-    let karteFertig: HTMLElement=document.createElement('div');
-    let div : string=`<div class="Karte" id=${_gelegteKarte.name}>
-        <p class="${_gelegteKarte.farbe}">${_gelegteKarte.symbol}</p>
+    let karteFertig=document.createElement('div');
+    let div =`<div class="Karte" id=${_gelegteKarte.name}>
+        <p class="${_gelegteKarte.farbe}">${_gelegteKarte.kartenSymbol}</p>
         <img class="Bild" src="${_gelegteKarte.wert}"></img>
         </div>`;
     karteFertig.innerHTML=div;
@@ -335,4 +338,15 @@ function anzeigeLegKarte(_htmlID:string, _gelegteKarte:Karte):void{
     loeschen();
     bauKarte();
     }
+//function vergleiche():void{
+ //   if (gespielt.kartenSymbol.charAt(1)==anzeigeLegKarte.kartenSymbol)
+    
+//}
+
+//var a="aaaaabcd";
+//var sub= a.substring(a.length-3, a.length);
+
+//var text="Das ist ein Test", x=3, teil;
+//teil=text.substr(text.length-x,x);
+//alert(teil); // --> est
 }
