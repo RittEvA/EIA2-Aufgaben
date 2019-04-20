@@ -1,0 +1,18 @@
+html{
+    background-color: lightgray;
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 1rem
+}
+header{
+    background-color: #d2b35f;
+    z-index:999;
+    width: 100%;
+    position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        padding-bottom: 0.2em;    
+}
+aside{
+    background-color: #d2b35f;
+}
