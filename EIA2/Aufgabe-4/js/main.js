@@ -24,25 +24,25 @@ var EisDealer;
                 document.getElementById("preis").innerHTML = String(num.toFixed(2));
                 if (input[w].name == "Behaelter") {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `<p>${input[w].id}</p>`;
+                    ziel.innerHTML = `${input[w].id}`;
                     document.getElementById("Beh").appendChild(ziel);
                 }
                 ;
                 if (input[w].name == "Eissorte") {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `<p>${input[w].id} ${input[w].value} €</p>`;
+                    ziel.innerHTML = `${input[w].id} ${input[w].value} €`;
                     document.getElementById("Eis").appendChild(ziel);
                 }
                 ;
                 if (input[w].name == "Topping") {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `<p>${input[w].id} ${input[w].value} €</p>`;
+                    ziel.innerHTML = `${input[w].id} ${input[w].value} €`;
                     document.getElementById("Top").appendChild(ziel);
                 }
                 ;
                 if (input[w].name == "Lieferoption") {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `<p>${input[w].id} ${input[w].value} €</p>`;
+                    ziel.innerHTML = `${input[w].id} ${input[w].value} €`;
                     document.getElementById("Lie").appendChild(ziel);
                 }
                 ;
