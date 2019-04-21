@@ -1,4 +1,12 @@
 namespace EisDealer {
+    /*
+Aufgabe: Aufgabe 4, Eis Dealer
+Name: Eva Ritt
+Matrikel: 261414
+Datum: 21.04.2019
+	
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
     window.addEventListener("load", init);
 
     function init():void{
