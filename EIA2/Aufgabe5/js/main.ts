@@ -44,22 +44,14 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     
     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     function aenderung(_event:Event):void{
-        //let target:HTMLInputElement=<HTMLInputElement>_event.target;
-        //alert("HAl");
         let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let num:number=0;
-        //alert(num);
+        let num:number=0
             document.getElementById("Beh").innerHTML = "";
             document.getElementById("Eis").innerHTML = "";
             document.getElementById("Top").innerHTML = "";
             document.getElementById("Lie").innerHTML = "";
-            //alert(input.length);
             for (let w: number = 0; w < input.length; w++){
-                //alert("1");
                 if (input[w].name != ""){
-                    //let preis: number = Number(input[w].getAttribute("preis"));
-                    //num += preis;
-                    //document.getElementById("preis").innerHTML = String(num.toFixed(2));
                     if(input[w].name == "Behälter" && input[w].checked == true){
                         let ziel =document.createElement("li");
                         ziel.innerHTML=`${input[w].id}`;
@@ -67,7 +59,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     };
                     if(input[w].name == "Eissorten"){
                         let ziel =document.createElement("li");
-                        //alert(input[w].value);
                         if (input[w].value != "0"){
                             ziel.innerHTML=`${input[w].value}x ${input[w].id} ${Number(Number(input[w].value) * Number(input[w].getAttribute("preis"))).toFixed(2)} €`;
                             num += Number(input[w].value) * Number(input[w].getAttribute("preis"));
@@ -96,21 +87,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 let behälterCheck:number=0;
                 let optionChecked:number=0;
                 let adressChecked:number=1;
-                /*
-                if(input[0].checked == false && input[1].checked == false){
-                    fehler += "Behälter " + String.fromCharCode(13); 
-                };
-                for(let r:number=2; r<11;r++){
-                    if(input[r].checked == true){
-                        eisChecked=1;
-                    }
-                }
-                if(eisChecked ==0){
-                    fehler += "Eissorte "+ String.fromCharCode(13);
-                }
-                if(input[17].checked == false && input[18].checked == false){
-                    fehler += "Lieferoption " + String.fromCharCode(13);
-                } */
                 for(let d:number=0; d<6; d++){
                     if(input[d].name == "Postleitzahl"){
                         if(Number(input[d].value) < 10000 || Number(input[d].value) > 99999){
@@ -152,6 +128,4 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 alert("Vielen Dank für Ihre Bestellung")
                 }
             }    
-        
-    
         }
