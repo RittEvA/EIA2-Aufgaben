@@ -22,6 +22,7 @@ namespace L05_Server {//namespace öffnen
 		_response.setHeader("Access-Control-Allow-Origin", "*")//der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
 
 		_response.write(_request.url);//die url wird in _respons durch _request geschrieben
+		console.log(_request.url)//gibt die Angaben in der url im Terminal aus
 
 		_response.end();//schließt _response ab und signalisiert dem Server vollständing zu sein
 	}//Funktion ist fertig
