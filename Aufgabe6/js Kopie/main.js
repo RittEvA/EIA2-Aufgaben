@@ -1,7 +1,7 @@
 var EisDealer;
 (function (EisDealer) {
     /*
-Aufgabe: Aufgabe 6, Eis Dealer server
+Aufgabe: Aufgabe 6, Eis Dealer reloaded
 Name: Eva Ritt
 Matrikel: 261414
 Datum: 01.05.2019
@@ -9,8 +9,7 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    //let zuServer:string='http://localhost:8100/';
-    let zuServer = 'https://eia2-rittevaa.herokuapp.com/';
+    let address = "http://localhost:8100";
     function init() {
         writeHTML(EisDealer.Angebot);
         let fieldsets = document.getElementsByTagName("fieldset");
@@ -30,7 +29,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             let box = document.createElement('fieldset');
             let builder = `<legende>${key}</legende><br>`;
             for (let b = 0; b < kathegorie.length; b++) {
-                builder += `<input type="${kathegorie[b].type}" kategorie="${kathegorie[b].kathegorie}" name="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="0">
+                builder += `<input type="${kathegorie[b].type}" name="${kathegorie[b].kathegorie}" id="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="0" kategorie"${kathegorie[b].kathegorie}">
                     <label for="${kathegorie[b].bezeichnung}">${kathegorie[b].bezeichnung} ${kathegorie[b].preis.toFixed(2)} €</label>
                     <br>`;
             }
@@ -48,33 +47,33 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         document.getElementById("Top").innerHTML = "";
         document.getElementById("Lie").innerHTML = "";
         for (let w = 0; w < input.length; w++) {
-            if (input[w].getAttribute("kategorie") != "") {
-                if (input[w].getAttribute("kategorie") == "Behälter" && input[w].checked == true) {
+            if (input[w].name != "") {
+                if (input[w].name == "Behälter" && input[w].checked == true) {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `${input[w].name}`;
+                    ziel.innerHTML = `${input[w].id}`;
                     document.getElementById("Beh").appendChild(ziel);
                 }
                 ;
-                if (input[w].getAttribute("kategorie") == "Eissorten") {
+                if (input[w].name == "Eissorten") {
                     let ziel = document.createElement("li");
                     if (input[w].value != "0") {
-                        ziel.innerHTML = `${input[w].value}x ${input[w].name} ${Number(Number(input[w].value) * Number(input[w].getAttribute("preis"))).toFixed(2)} €`;
+                        ziel.innerHTML = `${input[w].value}x ${input[w].id} ${Number(Number(input[w].value) * Number(input[w].getAttribute("preis"))).toFixed(2)} €`;
                         num += Number(input[w].value) * Number(input[w].getAttribute("preis"));
                         document.getElementById("Eis").appendChild(ziel);
                     }
                     ;
                 }
                 ;
-                if (input[w].getAttribute("kategorie") == "Topping" && input[w].checked == true) {
+                if (input[w].name == "Topping" && input[w].checked == true) {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `${input[w].name} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
+                    ziel.innerHTML = `${input[w].id} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
                     num += Number(input[w].getAttribute("preis"));
                     document.getElementById("Top").appendChild(ziel);
                 }
                 ;
-                if (input[w].getAttribute("kategorie") == "Lieferoption" && input[w].checked == true) {
+                if (input[w].name == "Lieferoption" && input[w].checked == true) {
                     let ziel = document.createElement("li");
-                    ziel.innerHTML = `${input[w].name} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
+                    ziel.innerHTML = `${input[w].id} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
                     num += Number(input[w].getAttribute("preis"));
                     document.getElementById("Lie").appendChild(ziel);
                 }
@@ -93,7 +92,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         let optionChecked = 0;
         let adressChecked = 1;
         for (let d = 0; d < 6; d++) {
-            if (input[d].getAttribute("kategorie") == "Postleitzahl") {
+            if (input[d].name == "Postleitzahl") {
                 if (Number(input[d].value) < 10000 || Number(input[d].value) > 99999) {
                     adressChecked = 0;
                 }
@@ -103,13 +102,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             }
         }
         for (let z = 0; z < input.length; z++) {
-            if (input[z].getAttribute("kategorie") == "Behälter" && input[z].checked == true) {
+            if (input[z].name == "Behälter" && input[z].checked == true) {
                 behälterCheck = 1;
             }
-            if (input[z].getAttribute("kategorie") == "Eissorten" && Number(input[z].value) > 0) {
+            if (input[z].name == "Eissorten" && Number(input[z].value) > 0) {
                 eisChecked = 1;
             }
-            if (input[z].getAttribute("kategorie") == "Lieferoption" && input[z].checked == true) {
+            if (input[z].name == "Lieferoption" && input[z].checked == true) {
                 optionChecked = 1;
             }
         }
@@ -131,33 +130,17 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         else {
             alert("Vielen Dank für Ihre Bestellung");
         }
-        datenÜbergeben();
-        /*let schreib: XMLHttpRequest = new XMLHttpRequest();
-        schreib.open("GET", address);
+        let schreib = new XMLHttpRequest();
+        schreib.open("GET", address + "bestellung=", true);
         schreib.addEventListener("readystatechange", handleStateChange);
-        schreib.send();*/
+        schreib.send();
     }
-    function datenÜbergeben() {
-        let input = document.getElementsByTagName("input");
-        for (let i = 0; i < input.length; i++) {
-            if (input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) != 0) {
-                zuServer += `${input[i].name}=${input[i].value}&`;
-            }
-            if (input[i].type == "radio" && input[i].checked == true || input[i].type == "checkbox" && input[i].checked == true) {
-                zuServer += `${input[i].name}&`;
-            }
+    function handleStateChange(_event) {
+        let schreib = _event.target;
+        if (schreib.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + schreib.readyState, " | type: " + schreib.responseType, " | status:" + schreib.status, " | text:" + schreib.statusText);
+            console.log("response: " + schreib.response);
         }
-        window.open(zuServer);
     }
-    /* function handleStateChange(_event: ProgressEvent): void {
-         let schreib: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-         if (schreib.readyState == XMLHttpRequest.DONE) {
-
-             console.log("ready: " + schreib.readyState, " | type: " + schreib.responseType, " | status:" + schreib.status, " | text:" + schreib.statusText);
-             console.log("response: " + schreib.response);
-         }
-     }
-     
-}*/
 })(EisDealer || (EisDealer = {}));
 //# sourceMappingURL=main.js.map
