@@ -8,6 +8,7 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
+    let address: string = "http://localhost:8100";
 
     function init():void{
         writeHTML(Angebot);
@@ -31,7 +32,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             
             let builder=`<legende>${key}</legende><br>`;
             for(let b:number=0; b<kathegorie.length; b++){
-               builder += `<input type="${kathegorie[b].type}" name="${kathegorie[b].kathegorie}" id="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="0">
+               builder += `<input type="${kathegorie[b].type}" name="${kathegorie[b].bezeichnung}" id="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="0" kategorie"${kathegorie[b].kathegorie}">
                     <label for="${kathegorie[b].bezeichnung}">${kathegorie[b].bezeichnung} ${kathegorie[b].preis.toFixed(2)} €</label>
                     <br>`;
             }
@@ -127,5 +128,17 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 else{
                 alert("Vielen Dank für Ihre Bestellung")
                 }
-            }    
+                let schreib: XMLHttpRequest = new XMLHttpRequest();
+                schreib.open("GET", address + "?color=" , true);
+                schreib.addEventListener("readystatechange", handleStateChange);
+                schreib.send();
+            }   
+
+            function handleStateChange(_event: ProgressEvent): void {
+                let schreib: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+                if (schreib.readyState == XMLHttpRequest.DONE) {
+                    console.log("ready: " + schreib.readyState, " | type: " + schreib.responseType, " | status:" + schreib.status, " | text:" + schreib.statusText);
+                    console.log("response: " + schreib.response);
+                }
+            } 
         }
