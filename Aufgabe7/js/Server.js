@@ -19,9 +19,10 @@ var L05_Server;
         console.log("I hear voices!"); //wenn die Funktion durch läuft wird 'Ihear voices!' in die Console geschrieben
         _response.setHeader("content-type", "text/html; charset=utf-8"); //der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
         _response.setHeader("Access-Control-Allow-Origin", "*"); //der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
+        _response.write("<h4>Ihre Bestellung wurde an den Server übergeben</h4>");
         let url = Url.parse(_request.url, true);
         for (let key in url.query)
-            _response.write(key + ":" + url.query[key] + "<br/>");
+            _response.write("<p>" + key + url.query[key] + "</p>");
         _response.end(); //schließt _response ab und signalisiert dem Server vollständing zu sein
     } //Funktion ist fertig
 })(L05_Server || (L05_Server = {})); //namespace schließen

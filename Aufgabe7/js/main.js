@@ -10,8 +10,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
     window.addEventListener("load", init);
     //let zuServer:string='http://localhost:8100/';
-    //let address: string = "http://localhost:8100";
-    let zuServer = 'https://eia2-rittevaa.herokuapp.com/';
+    //let address: string = 'https://eia2-rittevaa.herokuapp.com';
+    let zuServer = 'https://eia2-rittevaa.herokuapp.com/?';
     function init() {
         writeHTML(EisDealer.Angebot);
         let fieldsets = document.getElementsByTagName("fieldset");
@@ -144,19 +144,18 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 zuServer += `${input[i].name}&`;
             }
         }
-        window.open(zuServer);
+        sendRequestWithCustomData(zuServer);
     }
-    /* function sendRequestWithCustomData(_color: string): void {
-         let xhr: XMLHttpRequest = new XMLHttpRequest();
-         xhr.open("GET", address + "?color=" + _color, true);
-         xhr.addEventListener("readystatechange", handleStateChange);
-         xhr.send();
-     }*/
+    function sendRequestWithCustomData(_zuServer) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", _zuServer, true);
+        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.send();
+    }
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
-            console.log("response: " + xhr.response);
+            document.getElementById('submit').innerHTML = xhr.response;
         }
     }
 })(EisDealer || (EisDealer = {}));
