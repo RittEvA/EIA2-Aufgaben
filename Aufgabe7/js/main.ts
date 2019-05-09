@@ -8,8 +8,9 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    //let zuServer:string='http://localhost:8100/';
-    let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/';
+    let zuServer:string='http://localhost:8100/';
+    //let address: string = "http://localhost:8100";
+    //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/';
     function init():void{
         writeHTML(Angebot);
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
@@ -100,7 +101,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     }
                 }
                 for(let z:number=0; z<input.length;z++){
-                    if(input[z].getAttribute("kategorie") == "Behälter" && input[z].checked == true){
+                    if(input[z].getAttribute("kategorie") == "Behaelter" && input[z].checked == true){
                         behälterCheck = 1;
                     }
                     if(input[z].getAttribute("kategorie") == "Eissorten" && Number(input[z].value) > 0){
@@ -117,7 +118,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     fehler += "Eissorte "+ String.fromCharCode(13);
                 }
                 if(behälterCheck == 0){
-                    fehler += "Behälter "+ String.fromCharCode(13);
+                    fehler += "Behaelter "+ String.fromCharCode(13);
                 }
                 if(optionChecked == 0){
                     fehler += "Lieferoption "+ String.fromCharCode(13);
@@ -130,10 +131,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 alert("Vielen Dank für Ihre Bestellung")
                 }
                 datenÜbergeben();
-                let schreib: XMLHttpRequest = new XMLHttpRequest();
-                schreib.open("GET", address);
-                schreib.addEventListener("readystatechange", handleStateChange);
-                schreib.send();
             } 
             function datenÜbergeben(){
                     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
@@ -149,18 +146,19 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     window.open(zuServer);
                     
             }
-
+            function sendRequestWithCustomData(_color: string): void {
+                let xhr: XMLHttpRequest = new XMLHttpRequest();
+                xhr.open("GET", address + "?color=" + _color, true);
+                xhr.addEventListener("readystatechange", handleStateChange);
+                xhr.send();
+            }
         
-
             function handleStateChange(_event: ProgressEvent): void {
-                let schreib: XMLHttpRequest = <XMLHttpRequest>_event.target;
-                if (schreib.readyState == XMLHttpRequest.DONE) {
-
-                    
-                    console.log("ready: " + schreib.readyState, " | type: " + schreib.responseType, " | status:" + schreib.status, " | text:" + schreib.statusText);
-                    console.log("response: " + schreib.response);
+                let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+                    console.log("response: " + xhr.response);
                 }
-            } 
             
     }
-        }
+}
