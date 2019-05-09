@@ -1,5 +1,5 @@
 
-namespace EisDealer {
+namespace EisDealer1 {
     /*
 Aufgabe: Aufgabe 6, Eis Dealer server
 Name: Eva Ritt
@@ -9,9 +9,10 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    //let zuServer:string='http://localhost:8100/';
+    let zuServer:string='http://localhost:8100/?';
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
-    let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
+    //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
+    let num:number=0
     function init():void{
         writeHTML(Angebot);
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
@@ -48,7 +49,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     function aenderung(_event:Event):void{
         let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let num:number=0
+        
             document.getElementById("Beh").innerHTML = "";
             document.getElementById("Eis").innerHTML = "";
             document.getElementById("Top").innerHTML = "";
@@ -144,14 +145,15 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                             zuServer += `${input[i].name}&`
                         }
                     }
+                    zuServer += `Summe=${num}`
                     sendRequestWithCustomData(zuServer);
 
                     
             }
            function sendRequestWithCustomData(_zuServer:string): void {
                 let xhr: XMLHttpRequest = new XMLHttpRequest();
-                xhr.open("GET", _zuServer , true);
                 xhr.addEventListener("readystatechange", handleStateChange);
+                xhr.open("GET", _zuServer , true);
                 xhr.send();
             }
         

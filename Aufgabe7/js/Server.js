@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http"); //erstellen eines Http-Objekts, damit Interpreterer nach jedmöglichem import, um es dem http-objekt anzuhängen
 const Url = require("url");
-var L05_Server;
-(function (L05_Server) {
+var EisDealer1;
+(function (EisDealer1) {
     console.log("Starting server"); //'Start server' soll in der Console ausgegeben werden
     let port = Number(process.env.PORT); //eine Variable des Type number ist ein string der in eine number umgewandelt wird, damit der Server weis auf welchen Listener er hören soll
     if (!port) //wenn es nicht die angegebene Variable Port ist soll folgendender Port verwendet werden
@@ -25,5 +25,5 @@ var L05_Server;
             _response.write("<p>" + key + url.query[key] + "</p>");
         _response.end(); //schließt _response ab und signalisiert dem Server vollständing zu sein
     } //Funktion ist fertig
-})(L05_Server || (L05_Server = {})); //namespace schließen
+})(EisDealer1 || (EisDealer1 = {})); //namespace schließen
 //# sourceMappingURL=Server.js.map

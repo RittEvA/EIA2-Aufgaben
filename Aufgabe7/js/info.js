@@ -1,5 +1,5 @@
-var EisDealer;
-(function (EisDealer) {
+var EisDealer1;
+(function (EisDealer1) {
     /*
  Aufgabe: Aufgabe 6, Eis Dealer reloaded
  Name: Eva Ritt
@@ -8,7 +8,7 @@ var EisDealer;
      
  Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
  */
-    EisDealer.Angebot = {
+    EisDealer1.Angebot = {
         "Behaelter": [
             { bezeichnung: "Tuete", preis: 0, type: "radio", kathegorie: "Behaelter", min: 0, max: 0, step: 0 },
             { bezeichnung: "Becher", preis: 0, type: "radio", kathegorie: "Behaelter", min: 0, max: 0, step: 0 }
@@ -38,5 +38,5 @@ var EisDealer;
             { bezeichnung: "AufUhrzeit", preis: 3.50, type: "radio", kathegorie: "Lieferoption", min: 0, max: 0, step: 0 }
         ]
     };
-})(EisDealer || (EisDealer = {}));
+})(EisDealer1 || (EisDealer1 = {}));
 //# sourceMappingURL=info.js.map

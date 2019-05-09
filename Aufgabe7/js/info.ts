@@ -1,4 +1,5 @@
-namespace EisDealer{
+namespace EisDealer1{
+    
 
    /*
 Aufgabe: Aufgabe 6, Eis Dealer reloaded

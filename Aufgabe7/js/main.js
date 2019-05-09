@@ -1,5 +1,5 @@
-var EisDealer;
-(function (EisDealer) {
+var EisDealer1;
+(function (EisDealer1) {
     /*
 Aufgabe: Aufgabe 6, Eis Dealer server
 Name: Eva Ritt
@@ -9,11 +9,12 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    //let zuServer:string='http://localhost:8100/';
+    let zuServer = 'http://localhost:8100/?';
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
-    let zuServer = 'https://eia2-rittevaa.herokuapp.com/?';
+    //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
+    let num = 0;
     function init() {
-        writeHTML(EisDealer.Angebot);
+        writeHTML(EisDealer1.Angebot);
         let fieldsets = document.getElementsByTagName("fieldset");
         for (let i = 0; i < fieldsets.length; i++) {
             let fieldset = fieldsets[i];
@@ -43,7 +44,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     let input = document.getElementsByTagName("input");
     function aenderung(_event) {
         let input = document.getElementsByTagName("input");
-        let num = 0;
         document.getElementById("Beh").innerHTML = "";
         document.getElementById("Eis").innerHTML = "";
         document.getElementById("Top").innerHTML = "";
@@ -144,12 +144,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 zuServer += `${input[i].name}&`;
             }
         }
+        zuServer += `Summe=${num}`;
         sendRequestWithCustomData(zuServer);
     }
     function sendRequestWithCustomData(_zuServer) {
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", _zuServer, true);
         xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.open("GET", _zuServer, true);
         xhr.send();
     }
     function handleStateChange(_event) {
@@ -158,5 +159,5 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             document.getElementById('submit').innerHTML = xhr.response;
         }
     }
-})(EisDealer || (EisDealer = {}));
+})(EisDealer1 || (EisDealer1 = {}));
 //# sourceMappingURL=main.js.map
