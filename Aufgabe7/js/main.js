@@ -10,6 +10,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
     window.addEventListener("load", init);
     //let zuServer:string='http://localhost:8100/';
+    //let address: string = "http://localhost:8100";
     let zuServer = 'https://eia2-rittevaa.herokuapp.com/';
     function init() {
         writeHTML(EisDealer.Angebot);
@@ -49,7 +50,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         document.getElementById("Lie").innerHTML = "";
         for (let w = 0; w < input.length; w++) {
             if (input[w].getAttribute("kategorie") != "") {
-                if (input[w].getAttribute("kategorie") == "Behälter" && input[w].checked == true) {
+                if (input[w].getAttribute("kategorie") == "Behaelter" && input[w].checked == true) {
                     let ziel = document.createElement("li");
                     ziel.innerHTML = `${input[w].name}`;
                     document.getElementById("Beh").appendChild(ziel);
@@ -89,7 +90,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     function kontrolle(_event) {
         let fehler = "";
         let eisChecked = 0;
-        let behälterCheck = 0;
+        let behaelterCheck = 0;
         let optionChecked = 0;
         let adressChecked = 1;
         for (let d = 0; d < 6; d++) {
@@ -103,8 +104,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             }
         }
         for (let z = 0; z < input.length; z++) {
-            if (input[z].getAttribute("kategorie") == "Behälter" && input[z].checked == true) {
-                behälterCheck = 1;
+            if (input[z].getAttribute("kategorie") == "Behaelter" && input[z].checked == true) {
+                behaelterCheck = 1;
             }
             if (input[z].getAttribute("kategorie") == "Eissorten" && Number(input[z].value) > 0) {
                 eisChecked = 1;
@@ -119,8 +120,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         if (eisChecked == 0) {
             fehler += "Eissorte " + String.fromCharCode(13);
         }
-        if (behälterCheck == 0) {
-            fehler += "Behälter " + String.fromCharCode(13);
+        if (behaelterCheck == 0) {
+            fehler += "Behaelter " + String.fromCharCode(13);
         }
         if (optionChecked == 0) {
             fehler += "Lieferoption " + String.fromCharCode(13);
@@ -132,10 +133,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             alert("Vielen Dank für Ihre Bestellung");
         }
         datenÜbergeben();
-        /*let schreib: XMLHttpRequest = new XMLHttpRequest();
-        schreib.open("GET", address);
-        schreib.addEventListener("readystatechange", handleStateChange);
-        schreib.send();*/
     }
     function datenÜbergeben() {
         let input = document.getElementsByTagName("input");
@@ -149,15 +146,18 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
         window.open(zuServer);
     }
-    /* function handleStateChange(_event: ProgressEvent): void {
-         let schreib: XMLHttpRequest = (<XMLHttpRequest>_event.target);
-         if (schreib.readyState == XMLHttpRequest.DONE) {
-
-             console.log("ready: " + schreib.readyState, " | type: " + schreib.responseType, " | status:" + schreib.status, " | text:" + schreib.statusText);
-             console.log("response: " + schreib.response);
-         }
-     }
-     
-}*/
+    /* function sendRequestWithCustomData(_color: string): void {
+         let xhr: XMLHttpRequest = new XMLHttpRequest();
+         xhr.open("GET", address + "?color=" + _color, true);
+         xhr.addEventListener("readystatechange", handleStateChange);
+         xhr.send();
+     }*/
+    function handleStateChange(_event) {
+        let xhr = _event.target;
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+            console.log("ready: " + xhr.readyState, " | type: " + xhr.responseType, " | status:" + xhr.status, " | text:" + xhr.statusText);
+            console.log("response: " + xhr.response);
+        }
+    }
 })(EisDealer || (EisDealer = {}));
 //# sourceMappingURL=main.js.map

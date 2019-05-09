@@ -8,9 +8,9 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    let zuServer:string='http://localhost:8100/';
+    //let zuServer:string='http://localhost:8100/';
     //let address: string = "http://localhost:8100";
-    //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/';
+    let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/';
     function init():void{
         writeHTML(Angebot);
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
@@ -54,7 +54,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             document.getElementById("Lie").innerHTML = "";
             for (let w: number = 0; w < input.length; w++){
                 if (input[w].getAttribute("kategorie") != ""){
-                    if(input[w].getAttribute("kategorie") == "Behälter" && input[w].checked == true){
+                    if(input[w].getAttribute("kategorie") == "Behaelter" && input[w].checked == true){
                         let ziel =document.createElement("li");
                         ziel.innerHTML=`${input[w].name}`;
                         document.getElementById("Beh").appendChild(ziel);
@@ -87,7 +87,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             function kontrolle(_event:Event):void{
                 let fehler:string="";
                 let eisChecked:number=0;
-                let behälterCheck:number=0;
+                let behaelterCheck:number=0;
                 let optionChecked:number=0;
                 let adressChecked:number=1;
                 for(let d:number=0; d<6; d++){
@@ -102,7 +102,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 }
                 for(let z:number=0; z<input.length;z++){
                     if(input[z].getAttribute("kategorie") == "Behaelter" && input[z].checked == true){
-                        behälterCheck = 1;
+                        behaelterCheck = 1;
                     }
                     if(input[z].getAttribute("kategorie") == "Eissorten" && Number(input[z].value) > 0){
                         eisChecked=1;
@@ -117,7 +117,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 if(eisChecked == 0){
                     fehler += "Eissorte "+ String.fromCharCode(13);
                 }
-                if(behälterCheck == 0){
+                if(behaelterCheck == 0){
                     fehler += "Behaelter "+ String.fromCharCode(13);
                 }
                 if(optionChecked == 0){
@@ -146,12 +146,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     window.open(zuServer);
                     
             }
-            function sendRequestWithCustomData(_color: string): void {
+           /* function sendRequestWithCustomData(_color: string): void {
                 let xhr: XMLHttpRequest = new XMLHttpRequest();
                 xhr.open("GET", address + "?color=" + _color, true);
                 xhr.addEventListener("readystatechange", handleStateChange);
                 xhr.send();
-            }
+            }*/
         
             function handleStateChange(_event: ProgressEvent): void {
                 let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;

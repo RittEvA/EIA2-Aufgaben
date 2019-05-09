@@ -9,9 +9,9 @@ var EisDealer;
  Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
  */
     EisDealer.Angebot = {
-        "Behälter": [
-            { bezeichnung: "Tüte", preis: 0, type: "radio", kathegorie: "Behälter", min: 0, max: 0, step: 0 },
-            { bezeichnung: "Becher", preis: 0, type: "radio", kathegorie: "Behälter", min: 0, max: 0, step: 0 }
+        "Behaelter": [
+            { bezeichnung: "Tuete", preis: 0, type: "radio", kathegorie: "Behaelter", min: 0, max: 0, step: 0 },
+            { bezeichnung: "Becher", preis: 0, type: "radio", kathegorie: "Behaelter", min: 0, max: 0, step: 0 }
         ],
         "Eissorten": [
             { bezeichnung: "Schokolade", preis: 1, type: "number", kathegorie: "Eissorten", min: 0, max: 10, step: 1 },

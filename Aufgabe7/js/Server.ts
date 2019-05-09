@@ -1,4 +1,5 @@
 import * as Http from "http";//erstellen eines Http-Objekts, damit Interpreterer nach jedmöglichem import, um es dem http-objekt anzuhängen
+import * as Url from "url";
 
 namespace L05_Server {//namespace öffnen
 	console.log("Starting server");//'Start server' soll in der Console ausgegeben werden
@@ -21,9 +22,10 @@ namespace L05_Server {//namespace öffnen
 		_response.setHeader("content-type", "text/html; charset=utf-8");//der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
 		_response.setHeader("Access-Control-Allow-Origin", "*")//der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
 
-		_response.write(_request.url);//die url wird in _respons durch _request geschrieben
-		console.log(_request.url)//gibt die Angaben in der url im Terminal aus
-
+		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+		for (let key in url.query)
+			_response.write(key + ":" + url.query[key] + "<br/>");
+		
 		_response.end();//schließt _response ab und signalisiert dem Server vollständing zu sein
 	}//Funktion ist fertig
 }//namespace schließen
