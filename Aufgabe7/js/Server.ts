@@ -1,7 +1,7 @@
 import * as Http from "http";//erstellen eines Http-Objekts, damit Interpreterer nach jedmöglichem import, um es dem http-objekt anzuhängen
 import * as Url from "url";
 
-namespace EisDealer1 {//namespace öffnen
+namespace EisDealer1{//namespace öffnen
 	console.log("Starting server");//'Start server' soll in der Console ausgegeben werden
 	let port: number = Number(process.env.PORT);//eine Variable des Type number ist ein string der in eine number umgewandelt wird, damit der Server weis auf welchen Listener er hören soll
 	if (!port)//wenn es nicht die angegebene Variable Port ist soll folgendender Port verwendet werden
