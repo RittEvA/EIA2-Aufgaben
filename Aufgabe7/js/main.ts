@@ -171,7 +171,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             }
         
             function handleStateChange(_event: ProgressEvent): void {
-                let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
+                let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
                 if (xhr.readyState == XMLHttpRequest.DONE) {
                     document.getElementById('submit').innerHTML = "";
                     let htmlStr:string =`<p>${xhr.response}</p>`;
