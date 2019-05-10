@@ -9,7 +9,6 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    let zuServer = 'http://localhost:8100//?';
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
     //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
     function init() {
@@ -143,10 +142,11 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
         else {
             alert("Vielen Dank für Ihre Bestellung");
+            datenÜbergeben();
         }
-        datenÜbergeben();
     }
     function datenÜbergeben() {
+        let zuServer = 'http://localhost:8100/?';
         let input = document.getElementsByTagName("input");
         for (let i = 0; i < input.length; i++) {
             if (input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) > 0 || input[i].type == "radio" && input[i].checked == true) {

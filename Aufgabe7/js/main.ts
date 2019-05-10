@@ -9,7 +9,7 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    let zuServer:string='http://localhost:8100//?';
+    
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
     //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
     
@@ -142,10 +142,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 }
                 else{
                 alert("Vielen Dank für Ihre Bestellung")
-                }
                 datenÜbergeben();
+                }
+                
             } 
             function datenÜbergeben(){
+                let zuServer:string='http://localhost:8100/?';
                     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
                     for(let i:number=0; i<input.length; i++){
                         
