@@ -146,7 +146,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
     }
     function datenÜbergeben() {
-        let zuServer = 'http://localhost:8100/?';
+        let zuServer = 'https://eia2-rittevaa.herokuapp.com/?';
         let input = document.getElementsByTagName("input");
         for (let i = 0; i < input.length; i++) {
             if (input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) > 0 || input[i].type == "radio" && input[i].checked == true) {

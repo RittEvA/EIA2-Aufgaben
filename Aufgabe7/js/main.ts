@@ -147,7 +147,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 
             } 
             function datenÜbergeben(){
-                let zuServer:string='http://localhost:8100/?';
+                let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
                     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
                     for(let i:number=0; i<input.length; i++){
                         
