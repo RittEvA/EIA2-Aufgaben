@@ -115,8 +115,5 @@ aside{
     border-top-left-radius: 0.7em;
     border-bottom-left-radius: 0.7em;
 }
-#submit{
-    display:flex;
-    flex-direction: column; 
-}
+
 }

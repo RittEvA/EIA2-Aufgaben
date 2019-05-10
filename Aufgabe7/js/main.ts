@@ -9,10 +9,10 @@ Datum: 01.05.2019
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", init);
-    let zuServer:string='http://localhost:8100/?';
+    let zuServer:string='http://localhost:8100//?';
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
     //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
-    let num:number=0
+    
     function init():void{
         writeHTML(Angebot);
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
@@ -32,24 +32,35 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             <ul id="${key.substring(0, 3)}"></ul>`;
             document.getElementById('bestellung').appendChild(div);
             let box:HTMLElement=document.createElement('fieldset');
-            
-            let builder=`<legende>${key}</legende><br>`;
-            for(let b:number=0; b<kathegorie.length; b++){
-               builder += `<input type="${kathegorie[b].type}" kategorie="${kathegorie[b].kathegorie}" name="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="0">
-                    <label for="${kathegorie[b].bezeichnung}">${kathegorie[b].bezeichnung} ${kathegorie[b].preis.toFixed(2)} €</label>
-                    <br>`;
+            if(key == "Behaelter" || key == "Lieferoption"){
+                let builder=`<legende>${key}</legende><br>`;
+                for(let b:number=0; b<kathegorie.length; b++){
+                    builder += `<input type="${kathegorie[b].type}" kategorie="${kathegorie[b].kathegorie}" name="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="${kathegorie[b].value}">
+                     <label for="${kathegorie[b].bezeichnung}">${kathegorie[b].value} ${kathegorie[b].preis.toFixed(2)} €</label>
+                     <br>`;
+                }
+                box.setAttribute("id", key);
+                box.innerHTML=builder;
+                document.getElementById('angebot').appendChild(box);
             }
-            box.setAttribute("id", key);
-            box.innerHTML=builder;
-            document.getElementById('angebot').appendChild(box);
+            else{let builder=`<legende>${key}</legende><br>`;
+                for(let b:number=0; b<kathegorie.length; b++){
+                    builder += `<input type="${kathegorie[b].type}" kategorie="${kathegorie[b].kathegorie}" name="${kathegorie[b].bezeichnung}" preis="${kathegorie[b].preis}" min="${kathegorie[b].min}" max="${kathegorie[b].max}" step="${kathegorie[b].step}" value="${kathegorie[b].value}">
+                     <label for="${kathegorie[b].bezeichnung}">${kathegorie[b].bezeichnung} ${kathegorie[b].preis.toFixed(2)} €</label>
+                     <br>`;
+                }
+                box.setAttribute("id", key);
+                box.innerHTML=builder;
+                document.getElementById('angebot').appendChild(box);
+        }
         }
            
     }
     
     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
     function aenderung(_event:Event):void{
-        let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        
+       
+        let num:number=0
             document.getElementById("Beh").innerHTML = "";
             document.getElementById("Eis").innerHTML = "";
             document.getElementById("Top").innerHTML = "";
@@ -58,7 +69,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 if (input[w].getAttribute("kategorie") != ""){
                     if(input[w].getAttribute("kategorie") == "Behaelter" && input[w].checked == true){
                         let ziel =document.createElement("li");
-                        ziel.innerHTML=`${input[w].name}`;
+                        ziel.innerHTML=`${input[w].value}`;
                         document.getElementById("Beh").appendChild(ziel);
                     };
                     if(input[w].getAttribute("kategorie") == "Eissorten"){
@@ -77,7 +88,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     };
                     if(input[w].getAttribute("kategorie") == "Lieferoption" && input[w].checked == true){
                         let ziel =document.createElement("li");
-                        ziel.innerHTML=`${input[w].name} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
+                        ziel.innerHTML=`${input[w].value} ${Number(input[w].getAttribute("preis")).toFixed(2)} €`;
                         num += Number(input[w].getAttribute("preis"));
                         document.getElementById("Lie").appendChild(ziel);
                     };
@@ -138,30 +149,32 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
                     for(let i:number=0; i<input.length; i++){
                         
-                        if(input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) !=0){
+                        if(input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) >0 || input[i].type == "radio" && input[i].checked == true){
                         zuServer +=`${input[i].name}=${input[i].value}&`;
                         }
-                        if(input[i].type == "radio" && input[i].checked == true || input[i].type == "checkbox" && input[i].checked == true ){
+                        if(input[i].type == "checkbox" && input[i].checked == true ){
                             zuServer += `${input[i].name}&`
                         }
                     }
-                    zuServer += `Summe=${num}`
+                    
                     sendRequestWithCustomData(zuServer);
 
                     
             }
            function sendRequestWithCustomData(_zuServer:string): void {
                 let xhr: XMLHttpRequest = new XMLHttpRequest();
-                xhr.addEventListener("readystatechange", handleStateChange);
                 xhr.open("GET", _zuServer , true);
+                xhr.addEventListener("readystatechange", handleStateChange);
                 xhr.send();
             }
         
             function handleStateChange(_event: ProgressEvent): void {
-                let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
+                let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
                 if (xhr.readyState == XMLHttpRequest.DONE) {
-                    document.getElementById('submit').innerHTML = xhr.response;
+                    document.getElementById('submit').innerHTML = "";
+                    let htmlStr:string =`<p>${xhr.response}</p>`;
+                    document.getElementById('submit').innerHTML =htmlStr;
                 }
             
-    }
+            }
 }
