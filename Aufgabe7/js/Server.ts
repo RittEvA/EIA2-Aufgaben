@@ -24,10 +24,10 @@ namespace EisDealer1 {//namespace öffnen
 
 		_response.write("<h4>Ihre Bestellung wurde an den Server übergeben</h4>");
 		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-		for (let key in url.query)
+		for (let key in url.query){
 
 			_response.write("<p>" + key + ": " + url.query[key] + "</p>");
-
+		}
 		_response.end();//schließt _response ab und signalisiert dem Server vollständing zu sein
 	}//Funktion ist fertig
 }//namespace schließen
