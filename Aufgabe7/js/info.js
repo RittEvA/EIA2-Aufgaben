@@ -5,7 +5,7 @@ var EisDealer1;
  Name: Eva Ritt
  Matrikel: 261414
  Datum: 01.05.2019
-     
+    
  Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
  */
     EisDealer1.Angebot = {
@@ -28,9 +28,9 @@ var EisDealer1;
             { bezeichnung: "Sahne", preis: 0.50, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
             { bezeichnung: "Schockostreusel", preis: 0.30, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
             { bezeichnung: "bunteStreusel", preis: 0.30, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
-            { bezeichnung: "Vanillesoße", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
-            { bezeichnung: "Schockosoße", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
-            { bezeichnung: "Erdbeersoße", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" }
+            { bezeichnung: "Vanillesosse", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
+            { bezeichnung: "Schockososse", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" },
+            { bezeichnung: "Erdbeersosse", preis: 0.40, type: "checkbox", kathegorie: "Topping", min: 0, max: 0, step: 0, value: "0" }
         ],
         "Lieferoption": [
             { bezeichnung: "Lieferoption", preis: 2.00, type: "radio", kathegorie: "Lieferoption", min: 0, max: 0, step: 0, value: "sofort" },

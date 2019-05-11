@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <!--
+
+<head>
+    <!--
 Aufgabe: Aufgabe 6, Eis Dealer reloaded
 Name: Eva Ritt
 Matrikel: 261414
@@ -9,61 +10,62 @@ Datum: 01.05.2019
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 -->
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Eis-Dealer</title>
-            <link rel="stylesheet" href="./styles/main.css">
-            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eis-Dealer</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
 <body>
-    
 
-<header>
-    <h1>Eis Dealer</h1>
-    <img src="./styles/Eis-Logo.png" alt="Eis-Logo">
-</header>
-<main>
-    
-    <form method="get">
-    <div></div>
-    <aside>
-        <h3>Ihre Bestellung</h3>
-        <div id=bestellung></div>
-        <hr>
-        <div id="summe">
-            <p>Summe</p>
-            <p id="preis"></p>
-            <p>€</p>
-            <button id="kontrolle">Bestellen</button>
-            
-            
-        </div>
-    </aside>
-    <div id="angebot">
-    <fieldset id="adresse">
-        <legend>Lieferadresse</legend>
-        <label for="name">Name</label>
-        <input type="text" name="Name" id="name" placeholder="Nachname" required/>
-        <label for="vorname">Vorname</label>
-        <input type="text" name="Vorname" id="vorname" placeholder="Vorname" required/>
-        <br>
-        <label for="straße">Straße</label>
-        <input type="text" name="Straße" id="straße" placeholder="Waldbergstraße" required/>
-        <label for="hausnr">Hausnummer</label>
-        <input type="text" name="Hausnummer" id="hausnr" placeholder="6" pattern="[0-9]">
-        <br>
-        <label for="postle">Postleitzahl</label>
-        <input type="text" name="Postleitzahl" id="postle" placeholder="78120" pattern="[0-9]{5}">
-        <label for="ort">Ort</label>
-        <input type="text" name="Ort" id="ort" placeholder="Furtwangen" required/>
-    </fieldset>
-    <fieldset id="submit"></fieldset>
-    </div>
-    </form>
 
-</main>
-<footer>
-    <script src="./js/main.js" type="text/javascript" charset="utf-8"></script>
-    <script src="./js/info.js" type="text/javascript" charset="utf-8"></script>
-</footer>
+    <header>
+        <h1>Eis Dealer</h1>
+        <img src="./styles/Eis-Logo.png" alt="Eis-Logo">
+    </header>
+    <main>
+        <form method="GET">
+
+            <div></div>
+            <aside>
+                <h3>Ihre Bestellung</h3>
+                <div id=bestellung></div>
+                <hr>
+                <div id="summe">
+                    <p>Summe</p>
+                    <p id="preis"></p>
+                    <p>€</p>
+                    <button type="button" , id="kontrolle">Bestellen</button>
+
+
+                </div>
+            </aside>
+            <div id="angebot">
+                <fieldset id="adresse">
+                    <legend>Lieferadresse</legend>
+                    <label for="name">Name</label>
+                    <input type="text" name="Name" id="name" placeholder="Nachname" required />
+                    <label for="vorname">Vorname</label>
+                    <input type="text" name="Vorname" id="vorname" placeholder="Vorname" required />
+                    <br>
+                    <label for="straße">Straße</label>
+                    <input type="text" name="Straße" id="straße" placeholder="Waldbergstraße" required />
+                    <label for="hausnr">Hausnummer</label>
+                    <input type="text" name="Hausnummer" id="hausnr" placeholder="6" pattern="[0-9]">
+                    <br>
+                    <label for="postle">Postleitzahl</label>
+                    <input type="text" name="Postleitzahl" id="postle" placeholder="78120" pattern="[0-9]{5}">
+                    <label for="ort">Ort</label>
+                    <input type="text" name="Ort" id="ort" placeholder="Furtwangen" required />
+                </fieldset>
+                <fieldset id="vonServer"></fieldset>
+            </div>
+        </form>
+
+    </main>
+    <footer>
+        <script src="./js/main.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./js/info.js" type="text/javascript" charset="utf-8"></script>
+    </footer>
 </body>

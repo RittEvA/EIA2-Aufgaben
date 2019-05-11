@@ -146,8 +146,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
     }
     function datenÜbergeben() {
-        //let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
-        let zuServer = 'https://localhost:8100/?';
+        let zuServer = 'https://eia2-rittevaa.herokuapp.com/?';
+        //let zuServer: string = 'https://localhost:8100/?';
         let input = document.getElementsByTagName("input");
         for (let i = 0; i < input.length; i++) {
             if (input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) > 0 || input[i].type == "radio" && input[i].checked == true) {
@@ -157,7 +157,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 zuServer += `${input[i].name}&`;
             }
         }
-        alert(zuServer);
         //sendRequestWithCustomData(zuServer);
         let xhr = new XMLHttpRequest();
         xhr.open("GET", zuServer, true);
@@ -173,9 +172,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById('submit').innerHTML = "";
+            //document.getElementById('submit').innerHTML = "";
             let htmlStr = `<p>${xhr.response}</p>`;
-            document.getElementById('submit').innerHTML = htmlStr;
+            document.getElementById('vonServer').innerHTML = htmlStr;
         }
     }
 })(EisDealer1 || (EisDealer1 = {}));
