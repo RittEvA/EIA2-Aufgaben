@@ -8,7 +8,7 @@ Datum: 01.05.2019
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-    window.addEventListener("load", init);
+    window.addEventListener("DOMContentLoaded", init);
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
     //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
     function init() {
@@ -146,7 +146,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
     }
     function datenÜbergeben() {
-        let zuServer = 'https://eia2-rittevaa.herokuapp.com/?';
+        //let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
+        let zuServer = 'https://localhost:8100/?';
         let input = document.getElementsByTagName("input");
         for (let i = 0; i < input.length; i++) {
             if (input[i].getAttribute("kategorie") == "Eissorten" && Number(input[i].value) > 0 || input[i].type == "radio" && input[i].checked == true) {
@@ -156,14 +157,19 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 zuServer += `${input[i].name}&`;
             }
         }
-        sendRequestWithCustomData(zuServer);
-    }
-    function sendRequestWithCustomData(_zuServer) {
+        alert(zuServer);
+        //sendRequestWithCustomData(zuServer);
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", _zuServer, true);
+        xhr.open("GET", zuServer, true);
         xhr.addEventListener("readystatechange", handleStateChange);
         xhr.send();
     }
+    /* function sendRequestWithCustomData(_zuServer:string): void {
+          let xhr: XMLHttpRequest = new XMLHttpRequest();
+          xhr.open("GET", _zuServer , true);
+          xhr.addEventListener("readystatechange", handleStateChange);
+          xhr.send();
+      }*/
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {

@@ -8,7 +8,7 @@ Datum: 01.05.2019
 	
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-    window.addEventListener("load", init);
+    window.addEventListener("DOMContentLoaded", init);
     
     //let address: string = 'https://eia2-rittevaa.herokuapp.com';
     //let zuServer:string= 'https://eia2-rittevaa.herokuapp.com/?';
@@ -138,16 +138,17 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 }
                 
                 if(fehler!=""){
-                alert("Folgende Angaben fehlen: "+ String.fromCharCode(13) + fehler)
+                    alert("Folgende Angaben fehlen: "+ String.fromCharCode(13) + fehler)
                 }
                 else{
-                alert("Vielen Dank für Ihre Bestellung")
-                datenÜbergeben();
+                    alert("Vielen Dank für Ihre Bestellung")
+                    datenÜbergeben();
                 }
                 
             } 
             function datenÜbergeben(){
-                let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
+                //let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
+                let zuServer:string='https://localhost:8100/?';
                     let input:HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
                     for(let i:number=0; i<input.length; i++){
                         
@@ -158,17 +159,21 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                             zuServer += `${input[i].name}&`
                         }
                     }
-                    
-                    sendRequestWithCustomData(zuServer);
+                    alert(zuServer)
+                    //sendRequestWithCustomData(zuServer);
+                    let xhr: XMLHttpRequest = new XMLHttpRequest();
+                    xhr.open("GET", zuServer , true);
+                    xhr.addEventListener("readystatechange", handleStateChange);
+                    xhr.send();
 
                     
             }
-           function sendRequestWithCustomData(_zuServer:string): void {
+          /* function sendRequestWithCustomData(_zuServer:string): void {
                 let xhr: XMLHttpRequest = new XMLHttpRequest();
                 xhr.open("GET", _zuServer , true);
                 xhr.addEventListener("readystatechange", handleStateChange);
                 xhr.send();
-            }
+            }*/
         
             function handleStateChange(_event: ProgressEvent): void {
                 let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
