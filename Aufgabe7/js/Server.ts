@@ -1,7 +1,7 @@
 import * as Http from "http";//erstellen eines Http-Objekts, damit Interpreterer nach jedmöglichem import, um es dem http-objekt anzuhängen
 import * as Url from "url";
 
-namespace EisDealer1 {//namespace öffnen
+namespace EisDealer {//namespace öffnen
 	console.log("Starting server");//'Start server' soll in der Console ausgegeben werden
 	let port: number = Number(process.env.PORT);//eine Variable des Type number ist ein string der in eine number umgewandelt wird, damit der Server weis auf welchen Listener er hören soll
 	if (!port){//wenn es nicht die angegebene Variable Port ist soll folgendender Port verwendet werden
@@ -22,11 +22,13 @@ namespace EisDealer1 {//namespace öffnen
 		_response.setHeader("content-type", "text/html; charset=utf-8");//der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
 		_response.setHeader("Access-Control-Allow-Origin", "*");//der header wird in _response geschrieben egal ob er schon vorhanden ist oder nicht (Name, Wert)
 
-		_response.write("<h4>Ihre Bestellung wurde an den Server übergeben</h4>");
+		//_response.write("<h4>Ihre Bestellung wurde an den Server übergeben</h4>");
 		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 		for (let key in url.query){
 
 			_response.write("<p>" + key + ": " + url.query[key] + "</p>");
+			//let jsonString: string = JSON.stringify(url.query);
+			//_response.write(jsonString);
 		}
 		_response.end();//schließt _response ab und signalisiert dem Server vollständing zu sein
 	}//Funktion ist fertig

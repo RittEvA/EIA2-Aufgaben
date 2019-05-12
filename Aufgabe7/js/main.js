@@ -172,9 +172,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            //document.getElementById('submit').innerHTML = "";
-            let htmlStr = `<p>${xhr.response}</p>`;
-            document.getElementById('vonServer').innerHTML = htmlStr;
+            document.getElementById("submitÜbersicht").innerHTML = xhr.response;
         }
     }
 })(EisDealer1 || (EisDealer1 = {}));
