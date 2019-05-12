@@ -139,10 +139,10 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         }
 
         if (fehler != "") {
-            alert("Folgende Angaben fehlen: " + String.fromCharCode(13) + fehler);
+            alert("Folgende Angaben fehlen: " + String.fromCharCode(13) + fehler)
         }
         else {
-            alert("Vielen Dank für Ihre Bestellung");
+            alert("Vielen Dank für Ihre Bestellung")
             datenÜbergeben();
         }
 
@@ -157,7 +157,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
                 zuServer += `${input[i].name}=${input[i].value}&`;
             }
             if (input[i].type == "checkbox" && input[i].checked == true) {
-                zuServer += `${input[i].name}&`;
+                zuServer += `${input[i].name}&`
             }
         }
         //sendRequestWithCustomData(zuServer);
@@ -178,7 +178,9 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
     function handleStateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("submitÜbersicht").innerHTML = xhr.response;
+            //document.getElementById('submit').innerHTML = "";
+            let htmlStr: string = `<p>${xhr.response}</p>`;
+            document.getElementById('vonServer').innerHTML = htmlStr;
         }
 
     }
