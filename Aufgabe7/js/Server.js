@@ -6,8 +6,9 @@ var EisDealer1;
 (function (EisDealer1) {
     console.log("Starting server"); //'Start server' soll in der Console ausgegeben werden
     let port = Number(process.env.PORT); //eine Variable des Type number ist ein string der in eine number umgewandelt wird, damit der Server weis auf welchen Listener er hören soll
-    if (!port) //wenn es nicht die angegebene Variable Port ist soll folgendender Port verwendet werden
-        port = 8100; //die Variable Port wird überschrieben
+    if (!port) { //wenn es nicht die angegebene Variable Port ist soll folgendender Port verwendet werden
+        port = 8100;
+    } //die Variable Port wird überschrieben
     let server = Http.createServer(); //eine Variable mit dem Typen http-server wird erstellt und diese baut einen Server als http
     server.addListener("request", handleRequest); //ein Listener wird auf dem server erstellt und die 'handleRequest'-Funktion wird ausgeführt wenn etwas angefordert wird
     server.addListener("listening", handleListen); //ein Listener wird auf der Variable server erstellt, welcher die Funktion 'handleListen' aufruft wenn zugehört wird
