@@ -148,8 +148,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
     }
     function datenÜbergeben() {
-        let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
-        //let zuServer: string = 'https://localhost:8100/?';
+        //let zuServer:string='https://eia2-rittevaa.herokuapp.com/?';
+        let zuServer: string = 'https://localhost:8100/?';
         let input: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         for (let i: number = 0; i < input.length; i++) {
 
@@ -179,8 +179,10 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
         let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             //document.getElementById('submit').innerHTML = "";
-            let htmlStr: string = `<p>${xhr.response}</p>`;
-            document.getElementById('vonServer').innerHTML = htmlStr;
+            //let htmlStr: string = `<p>${xhr.response}</p>`;
+            //document.getElementById('vonServer').innerHTML = htmlStr;
+            let obj = JSON.parse(xhr.response)
+            document.getElementById('vonServer').innerHTML = obj;
         }
 
     }

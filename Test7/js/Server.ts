@@ -26,9 +26,9 @@ namespace EisDealer {//namespace öffnen
 		let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
 		for (let key in url.query){
 
-			_response.write("<p>" + key + ": " + url.query[key] + "</p>");
-			//let jsonString: string = JSON.stringify(url.query);
-			//_response.write(jsonString);
+			//_response.write("<p>" + key + ": " + url.query[key] + "</p>");
+			let jsonString: string = JSON.stringify(url.query);
+			_response.write(jsonString);
 		}
 		_response.end();//schließt _response ab und signalisiert dem Server vollständing zu sein
 	}//Funktion ist fertig
