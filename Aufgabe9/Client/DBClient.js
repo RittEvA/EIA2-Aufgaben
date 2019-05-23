@@ -51,7 +51,7 @@ var DBClient;
         let query = "command=search";
         query += "&matrikel=" + inputs[3].value;
         console.log(query);
-        sendRequest(query, handleInsertResponse);
+        sendRequest(query, handleFindResponse);
     }
 })(DBClient || (DBClient = {}));
 //# sourceMappingURL=DBClient.js.map
