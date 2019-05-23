@@ -38,7 +38,7 @@ function handleRequest(_request, _response) {
             break;
         case "search":
             let matNumber = {
-                matrikel: parseInt(query["Matrikelnummer"])
+                matrikel: parseInt(query["matrikel"])
             };
             Database.searchMat(matNumber, findCallback);
         default:

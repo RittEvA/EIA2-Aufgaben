@@ -54,7 +54,7 @@ namespace DBClient {
     function search(_event: Event): void {
         let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=search";
-        query += "&Matrikelnummer=" + inputs[3].value;
+        query += "&matrikel=" + inputs[3].value;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }

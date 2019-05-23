@@ -46,7 +46,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             break;
         case "search":
             let matNumber:matDaten={
-                matrikel:parseInt(query["Matrikelnummer"])
+                matrikel:parseInt(query["matrikel"])
             }
             Database.searchMat(matNumber, findCallback);
         default:
