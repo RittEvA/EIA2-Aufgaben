@@ -10,7 +10,7 @@ namespace DBClient {
         let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search")
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("Click", search);
+        searchButton.addEventListener("click", search);
     }
 
     function insert(_event: Event): void {
