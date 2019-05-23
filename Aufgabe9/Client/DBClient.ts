@@ -52,9 +52,9 @@ namespace DBClient {
         }
     }
     function search(_event: Event): void {
-        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("Matrikelnr");
+        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let query: string = "command=search";
-        query += "&Matrikelnummer=" + input.value;
+        query += "&Matrikelnummer=" + inputs[3].value;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
