@@ -53,7 +53,7 @@ namespace DBClient {
     }
     function search(_event: Event): void {
         let input: HTMLInputElement = <HTMLInputElement>document.getElementById("Matrikelnr");
-        let query: string = "command=insert";
+        let query: string = "command=search";
         query += "&Matrikelnummer=" + input.value;
         console.log(query);
         sendRequest(query, handleInsertResponse);

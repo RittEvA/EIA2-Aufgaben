@@ -48,7 +48,7 @@ var DBClient;
     }
     function search(_event) {
         let input = document.getElementById("Matrikelnr");
-        let query = "command=insert";
+        let query = "command=search";
         query += "&Matrikelnummer=" + input.value;
         console.log(query);
         sendRequest(query, handleInsertResponse);
