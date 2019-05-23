@@ -44,6 +44,11 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
+        case "search":
+            let matNumber:matDaten={
+                matrikel:parseInt(query["Matrikelnummer"])
+            }
+            Database.searchMat(matNumber, findCallback);
         default:
             respond(_response, "unknown command: " + command);
             break;

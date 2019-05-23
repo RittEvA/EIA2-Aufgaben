@@ -14,7 +14,7 @@ let students;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
-    databaseURL = "mongodb+srv://testuser:testpassword@eia2-57vpd.mongodb.net/eia2";
+    databaseURL = "mongodb+srv://dannsair:Eia2Kunst4@cluster0-1bzll.mongodb.net/test?retryWrites=true";
     databaseName = "eia2";
 }
 // try to connect to database, then activate callback "handleConnect" 
@@ -55,4 +55,15 @@ function findAll(_callback) {
     }
 }
 exports.findAll = findAll;
+function searchMat(_mat, _callback) {
+    var cursor = students.find(_mat);
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e, studentArray) {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(studentArray));
+    }
+}
+exports.searchMat = searchMat;
 //# sourceMappingURL=Database.js.map

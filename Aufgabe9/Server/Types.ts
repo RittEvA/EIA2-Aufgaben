@@ -7,3 +7,6 @@ interface StudentData {
     firstname: string;
     matrikel: number;
 }
+interface matDaten{
+    matrikel:number;
+}

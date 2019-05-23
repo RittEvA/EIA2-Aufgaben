@@ -15,7 +15,7 @@ let students: Mongo.Collection;
 // running on heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
-    databaseURL = "mongodb+srv://testuser:testpassword@eia2-57vpd.mongodb.net/eia2";
+    databaseURL = "mongodb+srv://dannsair:Eia2Kunst4@cluster0-1bzll.mongodb.net/test?retryWrites=true";
     databaseName = "eia2";
 }
 
@@ -59,4 +59,15 @@ export function findAll(_callback: Function): void {
             // stringify creates a json-string, passed it back to _callback
             _callback(JSON.stringify(studentArray));
     }
+}
+export function searchMat(_mat:matDaten, _callback:Function):void{
+    var cursor: Mongo.Cursor = students.find(_mat);
+    cursor.toArray(prepareAnswer);
+    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
+        if (_e)
+            _callback("Error" + _e);
+        else
+            _callback(JSON.stringify(studentArray));
+
+}
 }

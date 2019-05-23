@@ -1,14 +1,16 @@
 var DBClient;
 (function (DBClient) {
     window.addEventListener("load", init);
-    let serverAddress = "http://localhost:8100/";
-    // let serverAddress: string = "https://eia2-testserver.herokuapp.com/";
+    //let serverAddress: string = "http://localhost:8100/";
+    let serverAddress = "https://eia2-rittevaa.herokuapp.com";
     function init(_event) {
         console.log("Init");
         let insertButton = document.getElementById("insert");
         let refreshButton = document.getElementById("refresh");
+        let searchButton = document.getElementById("search");
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        searchButton.addEventListener("Click", search);
     }
     function insert(_event) {
         let inputs = document.getElementsByTagName("input");
@@ -43,6 +45,13 @@ var DBClient;
             let responseAsJson = JSON.parse(xhr.response);
             console.log(responseAsJson);
         }
+    }
+    function search(_event) {
+        let input = document.getElementById("Matrikelnr");
+        let query = "command=insert";
+        query += "&Matrikelnummer=" + input.value;
+        console.log(query);
+        sendRequest(query, handleInsertResponse);
     }
 })(DBClient || (DBClient = {}));
 //# sourceMappingURL=DBClient.js.map

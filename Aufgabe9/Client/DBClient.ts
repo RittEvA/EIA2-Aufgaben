@@ -1,14 +1,16 @@
 namespace DBClient {
     window.addEventListener("load", init);
-    let serverAddress: string = "http://localhost:8100/";
-    // let serverAddress: string = "https://eia2-testserver.herokuapp.com/";
+    //let serverAddress: string = "http://localhost:8100/";
+    let serverAddress: string = "https://eia2-rittevaa.herokuapp.com";
 
     function init(_event: Event): void {
         console.log("Init");
         let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
         let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
+        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search")
         insertButton.addEventListener("click", insert);
         refreshButton.addEventListener("click", refresh);
+        searchButton.addEventListener("Click", search);
     }
 
     function insert(_event: Event): void {
@@ -48,5 +50,12 @@ namespace DBClient {
             let responseAsJson: JSON = JSON.parse(xhr.response);
             console.log(responseAsJson);
         }
+    }
+    function search(_event: Event): void {
+        let input: HTMLInputElement = <HTMLInputElement>document.getElementById("Matrikelnr");
+        let query: string = "command=insert";
+        query += "&Matrikelnummer=" + input.value;
+        console.log(query);
+        sendRequest(query, handleInsertResponse);
     }
 }
