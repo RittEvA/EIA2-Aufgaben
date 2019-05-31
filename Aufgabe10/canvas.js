@@ -41,7 +41,7 @@ function init() {
         fischstäbchen(x, y);
     }
     for (let i = 0; i < 80; i++) { //Blubberblasen strom
-        let x = Math.random() * (Math.random() * ((1200 - 620) + 1)) + 620;
+        let x = Math.random() * (Math.random() * ((1200 - 1000) + 1)) + 700;
         let y = Math.random() * (Math.random() * ((700 - 20) + 1)) + 20;
         blubStrom(x, y);
     }
