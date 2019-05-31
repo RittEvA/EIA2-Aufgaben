@@ -32,7 +32,7 @@ function init():void{
     }
     for(let i:number=0; i<3; i++){//Gerippe
         let x: number = Math.random() * canvas.width;
-        let y: number = Math.random() * canvas.height-100;
+        let y: number = Math.random() * (Math.random() * ((700-500)+1)) + 500;
         knochen(x, y);
     }
     for(let i:number=0; i<8; i++){//Pflanze
@@ -42,13 +42,12 @@ function init():void{
     }
     for(let i:number=0; i<5; i++){//Fischstäbchen
         let x: number = Math.random() * canvas.width;
-        let y: number = Math.random() * canvas.height-100;
+        let y: number = Math.random() * canvas.height-400;
         fischstäbchen(x,y);
     }
     for (let i: number = 0; i < 80; i++) {//Blubberblasen strom
         let x: number = Math.random() * (Math.random() * ((1200-620)+1)) + 620;
-        let y: number = Math.random() * (Math.random() * ((700-30)+1)) + 30;
-        			
+        let y: number = Math.random() * (Math.random() * ((700-20)+1)) + 20;
         blubStrom(x, y);
     }
     for(let i:number = 0; i<4; i++){//stein groß
