@@ -12,53 +12,53 @@ function init():void{
     for(let i:number=0; i<15; i++){//Kleine Blubberblasen
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height-100;
-		kleineBlub(x, y);
+		zeichneKleineBlub(x, y);
     }
     for(let i:number=0; i<10; i++){//große Blubberblasen
         let x: number = Math.random() * canvas.width;
 		let y: number = Math.random() * canvas.height-100;
-		grosseBlub(x, y);
+		zeichneGrosseBlub(x, y);
     }
     
     for(let i:number=0; i<6; i++){//grinse Fisch
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height-100;
-        gluecklich(x, y);
+        zeichneGluecklich(x, y);
     }
     for(let i:number=0; i<4; i++){//schrei Fisch
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height-200;
-        schrei(x, y);
+        zeichneSchrei(x, y);
     }
     for(let i:number=0; i<3; i++){//Gerippe
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * (Math.random() * ((700-500)+1)) + 500;
-        knochen(x, y);
+        zeichneKnochen(x, y);
     }
     for(let i:number=0; i<8; i++){//Pflanze
         let x: number = Math.random() * canvas.width;
         let y: number = 650;
-        pflanze(x, y);
+        zeichnePflanze(x, y);
     }
     for(let i:number=0; i<5; i++){//Fischstäbchen
         let x: number = Math.random() * canvas.width;
         let y: number = Math.random() * canvas.height-400;
-        fischstäbchen(x,y);
+        zeichneFischstäbchen(x,y);
     }
     for (let i: number = 0; i < 80; i++) {//Blubberblasen strom
         let x: number = Math.random() * (Math.random() * ((1200-1000)+1)) + 700;
         let y: number = Math.random() * (Math.random() * ((700-20)+1)) + 20;
-        blubStrom(x, y);
+        zeichneBlubStrom(x, y);
     }
     for(let i:number = 0; i<4; i++){//stein groß
         let x: number = Math.random() * canvas.width;
         let y: number = 700;
-        stein2(x,y);
+        zeichneStein2(x,y);
     }
     for (let i:number =0; i<6; i++){//steine klein
         let x: number = Math.random() * canvas.width;
         let y: number = 700;
-        stein1(x,y);
+        zeichneStein1(x,y);
     }
 }
 function hintergrund():void{
@@ -76,7 +76,7 @@ function hintergrund():void{
     crc.fill(boden);
     crc.stroke(boden);
 }
-function stein1(_x:number, _y:number):void{
+function zeichneStein1(_x:number, _y:number):void{
     crc.beginPath();
     crc.moveTo(_x,_y);
     crc.lineTo(_x+110, _y);
@@ -88,7 +88,7 @@ function stein1(_x:number, _y:number):void{
     crc.stroke();
     crc.closePath();
 }
-function stein2(_x:number, _y:number):void{
+function zeichneStein2(_x:number, _y:number):void{
     crc.beginPath();
     crc.moveTo(_x,_y);
     crc.lineTo(_x+190, _y);
@@ -100,7 +100,7 @@ function stein2(_x:number, _y:number):void{
     crc.stroke();
     crc.closePath();
 }
-function kleineBlub(_x:number, _y:number):void{
+function zeichneKleineBlub(_x:number, _y:number):void{
     let kleineBlub: Path2D = new Path2D();
     kleineBlub.arc(_x, _y, 10, 0, 2 * Math.PI);
     crc.fillStyle = "#88e1ff";
@@ -108,7 +108,7 @@ function kleineBlub(_x:number, _y:number):void{
     crc.fill(kleineBlub);
     crc.stroke(kleineBlub);
 }
-function grosseBlub(_x:number, _y:number):void{
+function zeichneGrosseBlub(_x:number, _y:number):void{
     let grosseBlub: Path2D = new Path2D();
     grosseBlub.arc(_x, _y, 30, 0, 2 * Math.PI);
     crc.fillStyle = "#88e1ff";
@@ -116,7 +116,7 @@ function grosseBlub(_x:number, _y:number):void{
     crc.fill(grosseBlub);
     crc.stroke(grosseBlub);
 }
-function blubStrom(_x: number, _y: number): void {
+function zeichneBlubStrom(_x: number, _y: number): void {
     let bubber: Path2D = new Path2D();
     bubber.arc(_x, _y, Math.random() * (Math.random() * 20), 0, 2 * Math.PI);
     crc.fillStyle = "#88e1ff";
@@ -124,7 +124,7 @@ function blubStrom(_x: number, _y: number): void {
     crc.fill(bubber);
     crc.stroke(bubber);
 }
-function gluecklich(_x:number, _y:number):void{
+function zeichneGluecklich(_x:number, _y:number):void{
     crc.beginPath();//Schwanzflosse
     crc.moveTo(_x+66, _y-6);
     crc.quadraticCurveTo(_x+78, _y-7, _x+82, _y-19);
@@ -174,7 +174,7 @@ function gluecklich(_x:number, _y:number):void{
     crc.stroke(auge);
     
 }
-function schrei(_x:number, _y:number):void{
+function zeichneSchrei(_x:number, _y:number):void{
    //Körper
     crc.beginPath();
     crc.moveTo(_x, _y);
@@ -213,7 +213,7 @@ function schrei(_x:number, _y:number):void{
     crc.stroke();
     crc.closePath();
 }
-function knochen(_x:number, _y:number):void{//Gerippe
+function zeichneKnochen(_x:number, _y:number):void{//Gerippe
     //Kopf
     crc.beginPath();
     crc.moveTo(_x, _y);
@@ -275,7 +275,7 @@ function knochen(_x:number, _y:number):void{//Gerippe
     crc.stroke();
     crc.closePath();
 }
-function pflanze(_x:number, _y:number):void{//Wasserpflanzen
+function zeichnePflanze(_x:number, _y:number):void{//Wasserpflanzen
     crc.beginPath();
     crc.moveTo(_x, _y)
     crc.bezierCurveTo(_x+30, _y-30, _x-40, _y-110, _x+5, _y-165);
@@ -292,7 +292,7 @@ function pflanze(_x:number, _y:number):void{//Wasserpflanzen
     crc.stroke();
     crc.closePath();
 }
-function fischstäbchen(_x:number, _y:number):void{
+function zeichneFischstäbchen(_x:number, _y:number):void{
     crc.beginPath();//Seite links
     crc.moveTo(_x,_y);
     crc.lineTo(_x+25, _y+30);
