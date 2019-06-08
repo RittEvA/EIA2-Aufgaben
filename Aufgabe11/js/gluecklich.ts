@@ -62,8 +62,8 @@ namespace A11 {
             
             if (this.x < -100) {
 
-                this.y = 1220;
-                this.x = Math.random() * 700 - 100; 
+                this.y = Math.random() * 700 - 100;
+                this.x = 1220;
 
             }
 

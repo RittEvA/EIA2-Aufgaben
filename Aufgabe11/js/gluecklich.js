@@ -51,8 +51,8 @@ var A11;
         }
         move() {
             if (this.x < -100) {
-                this.y = 1220;
-                this.x = Math.random() * 700 - 100;
+                this.y = Math.random() * 700 - 100;
+                this.x = 1220;
             }
             this.x += this.dx;
             this.y += this.dy;
