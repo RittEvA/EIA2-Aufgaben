@@ -1,6 +1,6 @@
 var A11;
 (function (A11) {
-    class blubStrom {
+    class BlubStrom {
         draw() {
             let bubber = new Path2D();
             bubber.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
@@ -25,6 +25,6 @@ var A11;
             this.draw();
         }
     }
-    A11.blubStrom = blubStrom;
+    A11.BlubStrom = BlubStrom;
 })(A11 || (A11 = {}));
-//# sourceMappingURL=blubStrom.js.map
+//# sourceMappingURL=BlubStrom.js.map

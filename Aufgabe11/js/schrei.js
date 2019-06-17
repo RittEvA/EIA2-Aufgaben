@@ -1,6 +1,6 @@
 var A11;
 (function (A11) {
-    class schrei {
+    class Schrei {
         draw() {
             //Körper
             A11.crc.beginPath();
@@ -52,6 +52,6 @@ var A11;
             this.draw();
         }
     }
-    A11.schrei = schrei;
+    A11.Schrei = Schrei;
 })(A11 || (A11 = {}));
-//# sourceMappingURL=schrei.js.map
+//# sourceMappingURL=Schrei.js.map

@@ -1,6 +1,6 @@
 var A11;
 (function (A11) {
-    class fischstaebchen {
+    class Fischstaebchen {
         draw() {
             A11.crc.beginPath(); //Seite links
             A11.crc.moveTo(this.x, this.y);
@@ -88,6 +88,6 @@ var A11;
             this.draw();
         }
     }
-    A11.fischstaebchen = fischstaebchen;
+    A11.Fischstaebchen = Fischstaebchen;
 })(A11 || (A11 = {}));
-//# sourceMappingURL=fischstaebchen.js.map
+//# sourceMappingURL=Fischstaebchen.js.map

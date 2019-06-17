@@ -1,6 +1,6 @@
 
 namespace A11 {
-    export class schrei {
+    export class Schrei {
         x: number;
         y: number;
         dx: number;

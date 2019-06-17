@@ -3,11 +3,11 @@ namespace A11 {
     document.addEventListener("DOMContentLoaded", init);
     export let crc: CanvasRenderingContext2D;
     let canvas: HTMLCanvasElement;
-    let fischstaebchen: fischstaebchen[] = [];
-    let knochen: knochen[] = [];
-    let glueckliche: gluecklich[] = [];
-    let schreierei: schrei[] = [];
-    let blubStrom: blubStrom[] = [];
+    let fischstaebchen: Fischstaebchen[] = [];
+    let knochen: Knochen[] = [];
+    let glueckliche: Gluecklich[] = [];
+    let schreierei: Schrei[] = [];
+    let blubStrom: BlubStrom[] = [];
     let fps: number = 30;
     let imageData: ImageData;
 
@@ -21,8 +21,8 @@ namespace A11 {
             let y: number = Math.random() * canvas.height - 100;
             let dx: number = Math.random() * 10 - 10;
             let dy: number = 0;
-            let grins: gluecklich;
-            grins = new A11.gluecklich();
+            let grins: Gluecklich;
+            grins = new A11.Gluecklich();
             grins.x = x;
             grins.y = y;
             grins.dx = dx;
@@ -36,8 +36,8 @@ namespace A11 {
             let y: number = Math.random() * canvas.height - 200;
             let dx: number = Math.random() * 15;
             let dy: number = 0;
-            let schrei: schrei;
-            schrei = new A11.schrei();
+            let schrei: Schrei;
+            schrei = new A11.Schrei();
             schrei.x = x;
             schrei.y = y;
             schrei.dx = dx;
@@ -51,8 +51,8 @@ namespace A11 {
             let y: number = Math.random() * (Math.random() * ((700 - 500) + 1)) + 500;
             let dx: number = Math.random() * 5;
             let dy: number = 0;
-            let gerippe: knochen;
-            gerippe = new A11.knochen();
+            let gerippe: Knochen;
+            gerippe = new A11.Knochen();
             gerippe.x = x;
             gerippe.y = y;
             gerippe.dx = dx;
@@ -66,8 +66,8 @@ namespace A11 {
             let x: number = Math.random() * canvas.height - 300;
             let dx: number = Math.random() * 10 - 10;
             let dy: number = 0;
-            let fischstab: fischstaebchen;
-            fischstab = new A11.fischstaebchen();
+            let fischstab: Fischstaebchen;
+            fischstab = new A11.Fischstaebchen();
             fischstab.x = x;
             fischstab.y = y;
             fischstab.dx = dx;
@@ -82,8 +82,8 @@ namespace A11 {
             let r:number=Math.random() * (Math.random() * 20);
             let dx: number = Math.random() * 0;
             let dy: number = Math.random()*5-5;
-            let blubBlub: blubStrom;
-            blubBlub = new A11.blubStrom();
+            let blubBlub: BlubStrom;
+            blubBlub = new A11.BlubStrom();
             blubBlub.x = x;
             blubBlub.y = y;
             blubBlub.r = r;

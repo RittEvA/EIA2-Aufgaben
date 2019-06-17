@@ -1,5 +1,5 @@
 namespace A11 {
-    export class knochen {
+    export class Knochen {
         x: number;
         y: number;
         dx: number;

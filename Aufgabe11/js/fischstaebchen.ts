@@ -1,5 +1,5 @@
 namespace A11 {
-    export class fischstaebchen {
+    export class Fischstaebchen {
         x: number;
         y: number;
         dx: number;

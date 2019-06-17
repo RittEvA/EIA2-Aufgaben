@@ -1,6 +1,6 @@
 var A11;
 (function (A11) {
-    class knochen {
+    class Knochen {
         draw() {
             //Kopf
             A11.crc.beginPath();
@@ -76,6 +76,6 @@ var A11;
             this.y += this.dy;
         }
     }
-    A11.knochen = knochen;
+    A11.Knochen = Knochen;
 })(A11 || (A11 = {}));
-//# sourceMappingURL=knochen.js.map
+//# sourceMappingURL=Knochen.js.map

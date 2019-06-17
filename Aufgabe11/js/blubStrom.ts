@@ -1,5 +1,5 @@
 namespace A11 {
-    export class blubStrom {
+    export class BlubStrom {
         x: number;
         y: number;
         r:number;

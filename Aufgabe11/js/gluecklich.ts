@@ -1,5 +1,5 @@
 namespace A11 {
-    export class gluecklich {
+    export class Gluecklich {
         x: number;
         y: number;
         dx: number;

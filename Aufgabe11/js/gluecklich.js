@@ -1,6 +1,6 @@
 var A11;
 (function (A11) {
-    class gluecklich {
+    class Gluecklich {
         draw() {
             A11.crc.beginPath(); //Schwanzflosse
             A11.crc.moveTo(this.x + 66, this.y - 6);
@@ -59,6 +59,6 @@ var A11;
             this.draw();
         }
     }
-    A11.gluecklich = gluecklich;
+    A11.Gluecklich = Gluecklich;
 })(A11 || (A11 = {}));
-//# sourceMappingURL=gluecklich.js.map
+//# sourceMappingURL=Gluecklich.js.map
