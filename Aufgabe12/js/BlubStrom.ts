@@ -1,10 +1,7 @@
-namespace A11 {
-    export class BlubStrom {
-        x: number;
-        y: number;
+namespace A12 {
+    export class BlubStrom extends Objekte{
         r:number;
-        dx: number;
-        dy: number;
+       
         draw(): void {
             let bubber: Path2D = new Path2D();
             bubber.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
@@ -13,10 +10,7 @@ namespace A11 {
             crc.fill(bubber);
             crc.stroke(bubber);
         }
-        update(): void {
-            this.move();
-            this.draw();
-        }
+       
 
         move(): void {
             this.x += this.dx;

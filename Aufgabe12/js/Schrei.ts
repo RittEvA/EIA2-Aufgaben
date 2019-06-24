@@ -1,10 +1,7 @@
 
-namespace A11 {
-    export class Schrei {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
+namespace A12 {
+    export class Schrei extends Objekte{
+      
         draw(): void {
             //Körper
             crc.beginPath();
@@ -44,10 +41,7 @@ namespace A11 {
             crc.stroke();
             crc.closePath();
         }
-        update(): void {
-            this.move();
-            this.draw();
-        }
+        
 
         move(): void {
             if (this.x > 1300) {

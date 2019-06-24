@@ -1,9 +1,6 @@
-namespace A11 {
-    export class Knochen {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
+namespace A12 {
+    export class Knochen extends Objekte{
+        
         draw(): void {
             //Kopf
             crc.beginPath();
@@ -67,10 +64,7 @@ namespace A11 {
             crc.closePath();
         }
 
-        update(): void {
-            this.move();
-            this.draw();
-        }
+        
 
         move(): void {
 

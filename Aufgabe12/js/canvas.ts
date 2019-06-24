@@ -1,13 +1,9 @@
-namespace A11 {
+namespace A12 {
 
     document.addEventListener("DOMContentLoaded", init);
     export let crc: CanvasRenderingContext2D;
-    let canvas: HTMLCanvasElement;
-    let fischstaebchen: Fischstaebchen[] = [];
-    let knochen: Knochen[] = [];
-    let glueckliche: Gluecklich[] = [];
-    let schreierei: Schrei[] = [];
-    let blubStrom: BlubStrom[] = [];
+    export let canvas: HTMLCanvasElement;
+    let fische: Objekte[] = [];
     let fps: number = 30;
     let imageData: ImageData;
 
@@ -17,18 +13,18 @@ namespace A11 {
         hintergrund();
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
         for (let i: number = 0; i < 15; i++) {//glücklich
-            let x: number = Math.random() * canvas.width;
+            /*let x: number = Math.random() * canvas.width;
             let y: number = Math.random() * canvas.height - 100;
             let dx: number = Math.random() * 10 - 10;
-            let dy: number = 0;
+            let dy: number = 0;*/
             let grins: Gluecklich;
-            grins = new A11.Gluecklich();
-            grins.x = x;
+            grins = new Gluecklich();
+            /*grins.x = x;
             grins.y = y;
             grins.dx = dx;
-            grins.dy = dy;
-            glueckliche.push(grins);
-            grins.draw();
+            grins.dy = dy;*/
+            fische.push(grins);
+            //grins.draw();
         }
 
         for (let i: number = 0; i < 4; i++) {//schrei
@@ -37,12 +33,12 @@ namespace A11 {
             let dx: number = Math.random() * 15;
             let dy: number = 0;
             let schrei: Schrei;
-            schrei = new A11.Schrei();
+            schrei = new A12.Schrei();
             schrei.x = x;
             schrei.y = y;
             schrei.dx = dx;
             schrei.dy = dy;
-            schreierei.push(schrei);
+            fische.push(schrei);
             schrei.draw();
         }
 
@@ -52,12 +48,12 @@ namespace A11 {
             let dx: number = Math.random() * 5;
             let dy: number = 0;
             let gerippe: Knochen;
-            gerippe = new A11.Knochen();
+            gerippe = new A12.Knochen();
             gerippe.x = x;
             gerippe.y = y;
             gerippe.dx = dx;
             gerippe.dy = dy;
-            knochen.push(gerippe);
+            fische.push(gerippe);
             gerippe.draw();
         }
 
@@ -67,12 +63,12 @@ namespace A11 {
             let dx: number = Math.random() * 10 - 10;
             let dy: number = 0;
             let fischstab: Fischstaebchen;
-            fischstab = new A11.Fischstaebchen();
+            fischstab = new A12.Fischstaebchen();
             fischstab.x = x;
             fischstab.y = y;
             fischstab.dx = dx;
             fischstab.dy = dy;
-            fischstaebchen.push(fischstab);
+            fische.push(fischstab);
             fischstab.draw();
         }
 
@@ -83,13 +79,13 @@ namespace A11 {
             let dx: number = Math.random() * 0;
             let dy: number = Math.random()*5-5;
             let blubBlub: BlubStrom;
-            blubBlub = new A11.BlubStrom();
+            blubBlub = new A12.BlubStrom();
             blubBlub.x = x;
             blubBlub.y = y;
             blubBlub.r = r;
             blubBlub.dx = dx;
             blubBlub.dy = dy;
-            blubStrom.push(blubBlub);
+            fische.push(blubBlub);
             blubBlub.draw();
         }
         update();
@@ -101,21 +97,10 @@ namespace A11 {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
-        for (let i: number = 0; i < glueckliche.length; i++) {
-            glueckliche[i].update();
+        for (let i: number = 0; i < fische.length; i++) {
+            fische[i].update();
         }
-        for (let i: number = 0; i < schreierei.length; i++) {
-            schreierei[i].update();
-        }
-        for (let i:number = 0; i<knochen.length; i++){
-            knochen[i].update();
-        }
-        for (let i: number = 0; i < fischstaebchen.length; i++) {
-            fischstaebchen[i].update();
-        } 
-       for (let i: number = 0; i < blubStrom.length; i++) {
-            blubStrom[i].update();
-        }
+        
     }
 
     function hintergrund(): void {

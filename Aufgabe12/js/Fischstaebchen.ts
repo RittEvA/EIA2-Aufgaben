@@ -1,9 +1,5 @@
-namespace A11 {
-    export class Fischstaebchen {
-        x: number;
-        y: number;
-        dx: number;
-        dy: number;
+namespace A12 {
+    export class Fischstaebchen extends Objekte{
         draw(): void {
             crc.beginPath();//Seite links
             crc.moveTo(this.x, this.y);
@@ -76,11 +72,6 @@ namespace A11 {
             crc.strokeStyle = "#d28c28";
             crc.fill();
             crc.stroke();
-        }
-
-        update(): void {
-            this.move();
-            this.draw();
         }
 
         move(): void {
