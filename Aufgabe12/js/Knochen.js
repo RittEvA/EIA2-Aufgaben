@@ -1,6 +1,13 @@
 var A12;
 (function (A12) {
-    class Knochen extends A12.Objekte {
+    class Knochen extends A12.Bewegung {
+        constructor() {
+            super();
+            this.x = Math.random() * A12.canvas.width;
+            this.y = Math.random() * (Math.random() * ((700 - 500) + 1)) + 500;
+            this.dx = Math.random() * 5;
+            this.dy = 0;
+        }
         draw() {
             //Kopf
             A12.crc.beginPath();

@@ -3,89 +3,48 @@ namespace A12 {
     document.addEventListener("DOMContentLoaded", init);
     export let crc: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
-    let fische: Objekte[] = [];
+    let fischstaebchen: Fischstaebchen[] = [];
+    let knochen: Knochen[] = [];
+    let glueckliche: Gluecklich[] = [];
+    let schreierei: Schrei[] = [];
+    let blubStrom: BlubStrom[] = [];
+    let futter: Futter[]=[];
     let fps: number = 30;
     let imageData: ImageData;
 
     function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
+        canvas.addEventListener("click", fuettern);
         crc = canvas.getContext("2d");
         hintergrund();
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
         for (let i: number = 0; i < 15; i++) {//glücklich
-            /*let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height - 100;
-            let dx: number = Math.random() * 10 - 10;
-            let dy: number = 0;*/
-            let grins: Gluecklich;
-            grins = new Gluecklich();
-            /*grins.x = x;
-            grins.y = y;
-            grins.dx = dx;
-            grins.dy = dy;*/
-            fische.push(grins);
-            //grins.draw();
+            let grins: Gluecklich = new Gluecklich();
+            glueckliche.push(grins);
+            grins.draw();
         }
 
         for (let i: number = 0; i < 4; i++) {//schrei
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height - 200;
-            let dx: number = Math.random() * 15;
-            let dy: number = 0;
-            let schrei: Schrei;
-            schrei = new A12.Schrei();
-            schrei.x = x;
-            schrei.y = y;
-            schrei.dx = dx;
-            schrei.dy = dy;
-            fische.push(schrei);
+            let schrei: Schrei = new Schrei();
+            schreierei.push(schrei);
             schrei.draw();
         }
 
         for (let i: number = 0; i < 5; i++) {//Gerippe
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * (Math.random() * ((700 - 500) + 1)) + 500;
-            let dx: number = Math.random() * 5;
-            let dy: number = 0;
-            let gerippe: Knochen;
-            gerippe = new A12.Knochen();
-            gerippe.x = x;
-            gerippe.y = y;
-            gerippe.dx = dx;
-            gerippe.dy = dy;
-            fische.push(gerippe);
+            let gerippe: Knochen = new Knochen();
+            knochen.push(gerippe);
             gerippe.draw();
         }
 
         for (let i: number = 0; i < 7; i++) {//Fischstäbchen
-            let y: number = Math.random() * canvas.width;
-            let x: number = Math.random() * canvas.height - 300;
-            let dx: number = Math.random() * 10 - 10;
-            let dy: number = 0;
-            let fischstab: Fischstaebchen;
-            fischstab = new A12.Fischstaebchen();
-            fischstab.x = x;
-            fischstab.y = y;
-            fischstab.dx = dx;
-            fischstab.dy = dy;
-            fische.push(fischstab);
+            let fischstab: Fischstaebchen = new Fischstaebchen();
+            fischstaebchen.push(fischstab);
             fischstab.draw();
         }
 
         for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
-            let x: number = Math.random() * (Math.random() * ((1200 - 1000) + 1)) + 700;
-            let y: number = Math.random() * (Math.random() * ((700 - 20) + 1)) + 20;
-            let r:number=Math.random() * (Math.random() * 20);
-            let dx: number = Math.random() * 0;
-            let dy: number = Math.random()*5-5;
-            let blubBlub: BlubStrom;
-            blubBlub = new A12.BlubStrom();
-            blubBlub.x = x;
-            blubBlub.y = y;
-            blubBlub.r = r;
-            blubBlub.dx = dx;
-            blubBlub.dy = dy;
-            fische.push(blubBlub);
+            let blubBlub: BlubStrom = new BlubStrom();
+            blubStrom.push(blubBlub);
             blubBlub.draw();
         }
         update();
@@ -97,10 +56,34 @@ namespace A12 {
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
 
-        for (let i: number = 0; i < fische.length; i++) {
-            fische[i].update();
+        for (let i: number = 0; i < glueckliche.length; i++) {
+            glueckliche[i].update();
         }
-        
+        for (let i: number = 0; i < schreierei.length; i++) {
+            schreierei[i].update();
+        }
+        for (let i:number = 0; i<knochen.length; i++){
+            knochen[i].update();
+        }
+        for (let i: number = 0; i < fischstaebchen.length; i++) {
+            fischstaebchen[i].update();
+        } 
+       for (let i: number = 0; i < blubStrom.length; i++) {
+            blubStrom[i].update();
+        }
+        for(let i: number = 0; i<futter.length; i++){
+            futter[i].update();
+        }
+    }
+
+    function fuettern(_event: MouseEvent):void{
+        let x: number = _event.clientX;
+		let y: number = _event.clientY;
+		let kruemel: Futter = new Futter();
+		kruemel.x = x - 9;
+		kruemel.y = y - 12;
+		futter.push(kruemel);
+		kruemel.draw();
     }
 
     function hintergrund(): void {

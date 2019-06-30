@@ -1,14 +1,12 @@
-namespace A12 {
-    export class Gluecklich extends Objekte{
-
+namespace A12{
+    export class Gluecklich extends Bewegung{
         constructor(){
-            let x: number = Math.random() * canvas.width;
-            let y: number = Math.random() * canvas.height - 100;
-            let dx: number = Math.random() * 10 - 10;
-            let dy: number = 0;
             super();
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height - 100;
+            this.dx = Math.random() * 10 - 10;
+            this.dy = 0;
         }
-        
         draw(): void {
             crc.beginPath();//Schwanzflosse
             crc.moveTo(this.x + 66, this.y - 6);
@@ -57,9 +55,11 @@ namespace A12 {
             crc.strokeStyle = "black";
             crc.fill(auge);
             crc.stroke(auge);
-            super.draw();
         }
-       
+        update(): void {
+            this.move();
+            this.draw();
+        }
 
         move(): void {
             

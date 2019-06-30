@@ -1,6 +1,13 @@
 var A12;
 (function (A12) {
-    class Schrei extends A12.Objekte {
+    class Schrei extends A12.Bewegung {
+        constructor() {
+            super();
+            this.x = Math.random() * A12.canvas.width;
+            this.y = Math.random() * A12.canvas.height - 200;
+            this.dx = Math.random() * 15;
+            this.dy = 0;
+        }
         draw() {
             //Körper
             A12.crc.beginPath();

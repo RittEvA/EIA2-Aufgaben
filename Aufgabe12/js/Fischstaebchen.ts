@@ -1,5 +1,12 @@
-namespace A12 {
-    export class Fischstaebchen extends Objekte{
+namespace A12{
+    export class Fischstaebchen extends Bewegung{
+        constructor(){
+            super();
+            this.y = Math.random() * canvas.width;
+            this.x = Math.random() * canvas.height - 300;
+            this.dx = Math.random() * 10 - 10;
+            this.dy = 0;
+        }
         draw(): void {
             crc.beginPath();//Seite links
             crc.moveTo(this.x, this.y);

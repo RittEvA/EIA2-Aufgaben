@@ -1,6 +1,13 @@
 var A12;
 (function (A12) {
-    class Fischstaebchen extends A12.Objekte {
+    class Fischstaebchen extends A12.Bewegung {
+        constructor() {
+            super();
+            this.y = Math.random() * A12.canvas.width;
+            this.x = Math.random() * A12.canvas.height - 300;
+            this.dx = Math.random() * 10 - 10;
+            this.dy = 0;
+        }
         draw() {
             A12.crc.beginPath(); //Seite links
             A12.crc.moveTo(this.x, this.y);

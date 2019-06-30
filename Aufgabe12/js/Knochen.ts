@@ -1,6 +1,12 @@
-namespace A12 {
-    export class Knochen extends Objekte{
-        
+namespace A12{
+    export class Knochen extends Bewegung{
+        constructor(){
+            super();
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * (Math.random() * ((700 - 500) + 1)) + 500;
+            this.dx = Math.random() * 5;
+            this.dy = 0;
+        }
         draw(): void {
             //Kopf
             crc.beginPath();
@@ -63,8 +69,6 @@ namespace A12 {
             crc.stroke();
             crc.closePath();
         }
-
-        
 
         move(): void {
 

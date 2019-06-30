@@ -1,7 +1,12 @@
-
-namespace A12 {
-    export class Schrei extends Objekte{
-      
+namespace A12{
+    export class Schrei extends Bewegung{
+        constructor(){
+            super();
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height - 200;
+            this.dx = Math.random() * 15;
+            this.dy = 0;
+        }
         draw(): void {
             //Körper
             crc.beginPath();
@@ -41,7 +46,6 @@ namespace A12 {
             crc.stroke();
             crc.closePath();
         }
-        
 
         move(): void {
             if (this.x > 1300) {
@@ -53,5 +57,6 @@ namespace A12 {
             this.y += this.dy;
             this.draw();
         }
+    
     }
 }

@@ -1,12 +1,12 @@
 var A12;
 (function (A12) {
-    class Gluecklich extends A12.Objekte {
+    class Gluecklich extends A12.Bewegung {
         constructor() {
-            let x = Math.random() * A12.canvas.width;
-            let y = Math.random() * A12.canvas.height - 100;
-            let dx = Math.random() * 10 - 10;
-            let dy = 0;
             super();
+            this.x = Math.random() * A12.canvas.width;
+            this.y = Math.random() * A12.canvas.height - 100;
+            this.dx = Math.random() * 10 - 10;
+            this.dy = 0;
         }
         draw() {
             A12.crc.beginPath(); //Schwanzflosse
@@ -51,7 +51,10 @@ var A12;
             A12.crc.strokeStyle = "black";
             A12.crc.fill(auge);
             A12.crc.stroke(auge);
-            super.draw();
+        }
+        update() {
+            this.move();
+            this.draw();
         }
         move() {
             if (this.x < -100) {
