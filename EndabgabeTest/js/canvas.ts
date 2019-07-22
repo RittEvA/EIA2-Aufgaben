@@ -12,6 +12,9 @@ namespace Endabgabe {
     let fischstab: Fischstaebchen;
     let blubBlub: BlubStrom;
     let geist: Geist;
+    let timeout: number;
+    export let punkte: number = 0;
+    export let spielerName: string;
 
     export function init(): void {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -55,8 +58,8 @@ namespace Endabgabe {
         update();
 
     }
-    let punkte: number = 0;
-    function essen(): number {
+
+    export function essen(): number {
         for (let i: number = 0; i < alles.length; i++) {
             let d: number = Math.hypot(alles[i].x - meiner.x, alles[i].y - meiner.y);//Distanz zwischen Fisch des Spielers und den anderen Fischen
             if ((meiner.t == alles[i].t || meiner.t > alles[i].t) && alles[i] != meiner && alles[i].t != 0) {
@@ -66,14 +69,37 @@ namespace Endabgabe {
                     meiner.t += 0.2;
                     punkte += 1;
 
+                    if (alles[i] instanceof Fischstaebchen) {
+                        fischstab = new Fischstaebchen();
+                        alles.push(fischstab);
+                    }
+                    else if (alles[i] instanceof Schrei) {
+                        schrei = new Schrei();
+                        alles.push(schrei);
+                    }
+                    else if (alles[i] instanceof Geist) {
+                        for (let i: number = 0; i < 3; i++) {
+                            geist = new Geist();
+                            alles.push(geist);
+                        }
+                    }
+                    else if (alles[i] instanceof Gluecklich) {
+                        grins = new Gluecklich();
+                        alles.push(grins);
+                    }
+
                 }
 
             }
             else if (meiner.t < alles[i].t && alles[i] != meiner && alles[i].t != 0) {
-                if (d < 30) {
+                if (d < 30) {//stirb und 
                     alles.splice(0, 1);
                     stopAnimation();
-                    alert("Game Over");
+                    spielerName = prompt("Dein Score: " + punkte + " Wie heißt du denn?", "...");
+                    if (spielerName != "") {
+                        insert();
+                        refresh();
+                    }
                 }
             }
         } return punkte;
@@ -103,7 +129,7 @@ namespace Endabgabe {
 
     function update(): void {
         startAnimation();
-        //window.setTimeout(update, 1000 / fps);
+
         crc.clearRect(0, 0, canvas.width, canvas.height);
         crc.putImageData(imageData, 0, 0);
         essen();
@@ -112,7 +138,7 @@ namespace Endabgabe {
             alles[i].update();
         }
     }
-    let timeout: number;
+
     function startAnimation() {
         timeout = window.setTimeout(update, 1000 / fps)
     }

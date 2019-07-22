@@ -1,9 +1,4 @@
 "use strict";
-/**
- * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
- * @adapted: Lukas Scheuerle
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
@@ -25,23 +20,22 @@ function handleRequest(_request, _response) {
     let command = query["command"];
     switch (command) {
         case "insert":
-            let student = {
+            let player = {
                 name: query["name"],
-                firstname: query["firstname"],
-                matrikel: parseInt(query["matrikel"])
+                score: parseInt(query["score"]),
             };
-            Database.insert(student);
+            Database.insert(player);
             respond(_response, "storing data");
             break;
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
-            let matNumber = {
-                matrikel: parseInt(query["matrikel"])
-            };
-            Database.searchMat(matNumber, findCallback);
-            break;
+        //case "search":
+        //let matNumber:ScoreData={
+        //    matrikel:parseInt(query["matrikel"])
+        //}
+        // Database.searchMat(matNumber, findCallback);
+        //break;
         default:
             respond(_response, "unknown command: " + command);
             break;

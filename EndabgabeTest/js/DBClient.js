@@ -1,30 +1,20 @@
-var DBClient;
-(function (DBClient) {
-    window.addEventListener("load", init);
+var Endabgabe;
+(function (Endabgabe) {
     //let serverAddress: string = "http://localhost:8100/";
     let serverAddress = "https://eia2-rittevaa.herokuapp.com";
-    function init(_event) {
-        console.log("Init");
-        let insertButton = document.getElementById("insert");
-        let refreshButton = document.getElementById("refresh");
-        let searchButton = document.getElementById("search");
-        insertButton.addEventListener("click", insert);
-        refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
-    }
-    function insert(_event) {
-        let inputs = document.getElementsByTagName("input");
+    function insert() {
         let query = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
+        query += "&name=" + Endabgabe.spielerName;
+        query += "&score=" + Endabgabe.punkte;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
-    function refresh(_event) {
+    Endabgabe.insert = insert;
+    function refresh() {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
+    Endabgabe.refresh = refresh;
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
@@ -53,5 +43,5 @@ var DBClient;
         console.log(query);
         sendRequest(query, handleFindResponse);
     }
-})(DBClient || (DBClient = {}));
+})(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=DBClient.js.map

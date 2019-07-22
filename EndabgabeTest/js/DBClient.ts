@@ -1,28 +1,17 @@
-namespace DBClient {
-    window.addEventListener("load", init);
+namespace Endabgabe {
     //let serverAddress: string = "http://localhost:8100/";
     let serverAddress: string = "https://eia2-rittevaa.herokuapp.com";
 
-    function init(_event: Event): void {
-        console.log("Init");
-        let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
-        let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        let searchButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("search")
-        insertButton.addEventListener("click", insert);
-        refreshButton.addEventListener("click", refresh);
-        searchButton.addEventListener("click", search);
-    }
 
-    function insert(_event: Event): void {
-        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    export function insert(): void {
         let query: string = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&score=" + inputs[1].value;
+        query += "&name=" + spielerName;
+        query += "&score=" + punkte;
         console.log(query);
         sendRequest(query, handleInsertResponse);
     }
 
-    function refresh(_event: Event): void {
+    export function refresh(): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
     }

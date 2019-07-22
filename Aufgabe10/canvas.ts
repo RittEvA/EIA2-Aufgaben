@@ -492,12 +492,21 @@ function zeichneMeiner2(_x: number, _y: number): void {//Gerippe
     crc.fill();
     crc.stroke();
     crc.closePath();
-    
+    //Rückenflosse
+    crc.beginPath();
+    crc.moveTo(_x-30,_y-20);
+    crc.lineTo(_x-42,_y-42);
+    crc.quadraticCurveTo(_x-66,_y-50,_x-90,_y-36);
+    crc.lineTo(_x-70,_y-20);
+    crc.fillStyle = "lightgreen";
+    crc.strokeStyle = "lightgreen";
+    crc.fill();
+    crc.stroke();
     //Kopf
     crc.beginPath();
     crc.moveTo(_x, _y);
     crc.quadraticCurveTo(_x - 20, _y - 25, _x - 54, _y - 30);
-    crc.lineTo(_x-110,_y-17);//Körper zu schwanz
+    crc.quadraticCurveTo(_x-110,_y-17, _x,_y);//Körper zu schwanz
     crc.quadraticCurveTo(_x - 95, _y - 0, _x - 110, _y + 24);//überkörper
     crc.quadraticCurveTo(_x - 20, _y + 25, _x - 4, _y + 10);
     crc.lineTo(_x - 20, _y + 9);
@@ -506,9 +515,13 @@ function zeichneMeiner2(_x: number, _y: number): void {//Gerippe
     crc.strokeStyle = "green";
     crc.fill();
     crc.stroke();
-    //Rückenflosse
+    //Flosse
     crc.beginPath();
-
+    crc.moveTo(_x-54,_y+24);
+    crc.quadraticCurveTo(_x-60,_y+42,_x-72,_y+52)
+    crc.lineTo(_x-76,_y+30);
+    crc.lineTo(_x-66,_y+24);
+    crc.lineTo(_x-54,_y+24)
     crc.fillStyle = "lightgreen";
     crc.strokeStyle = "lightgreen";
     crc.fill();

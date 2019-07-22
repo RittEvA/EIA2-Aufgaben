@@ -1,8 +1,5 @@
-/**
- * Simple server managing between client and database
- * @author: Jirka Dell'Oro-Friedl
- * @adapted: Lukas Scheuerle
- */
+
+
 
 import * as Http from "http";
 import * as Url from "url";
@@ -35,7 +32,7 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "insert":
             let player: ScoreData = {
                 name: query["name"],
-                score: query["score"],
+                score: parseInt(query["score"]),
             };
             Database.insert(player);
             respond(_response, "storing data");
@@ -43,12 +40,12 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
         case "refresh":
             Database.findAll(findCallback);
             break;
-        case "search":
-            let matNumber:ScoreData={
-                matrikel:parseInt(query["matrikel"])
-            }
-            Database.searchMat(matNumber, findCallback);
-            break;
+        //case "search":
+            //let matNumber:ScoreData={
+            //    matrikel:parseInt(query["matrikel"])
+            //}
+           // Database.searchMat(matNumber, findCallback);
+            //break;
         default:
             respond(_response, "unknown command: " + command);
             break;

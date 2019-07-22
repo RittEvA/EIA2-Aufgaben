@@ -10,6 +10,8 @@ var Endabgabe;
     let fischstab;
     let blubBlub;
     let geist;
+    let timeout;
+    Endabgabe.punkte = 0;
     function init() {
         Endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         Endabgabe.canvas.addEventListener("click", fuettern);
@@ -48,7 +50,6 @@ var Endabgabe;
         update();
     }
     Endabgabe.init = init;
-    let punkte = 0;
     function essen() {
         for (let i = 0; i < alles.length; i++) {
             let d = Math.hypot(alles[i].x - meiner.x, alles[i].y - meiner.y); //Distanz zwischen Fisch des Spielers und den anderen Fischen
@@ -57,19 +58,42 @@ var Endabgabe;
                     alles.splice(i, 1);
                     meiner.s += 0.2;
                     meiner.t += 0.2;
-                    punkte += 1;
+                    Endabgabe.punkte += 1;
+                    if (alles[i] instanceof Endabgabe.Fischstaebchen) {
+                        fischstab = new Endabgabe.Fischstaebchen();
+                        alles.push(fischstab);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Schrei) {
+                        schrei = new Endabgabe.Schrei();
+                        alles.push(schrei);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Geist) {
+                        for (let i = 0; i < 3; i++) {
+                            geist = new Endabgabe.Geist();
+                            alles.push(geist);
+                        }
+                    }
+                    else if (alles[i] instanceof Endabgabe.Gluecklich) {
+                        grins = new Endabgabe.Gluecklich();
+                        alles.push(grins);
+                    }
                 }
             }
             else if (meiner.t < alles[i].t && alles[i] != meiner && alles[i].t != 0) {
-                if (d < 30) {
+                if (d < 30) { //stirb und 
                     alles.splice(0, 1);
                     stopAnimation();
-                    alert("Game Over");
+                    Endabgabe.spielerName = prompt("Dein Score: " + Endabgabe.punkte + " Wie heißt du denn?", "...");
+                    if (Endabgabe.spielerName != "") {
+                        Endabgabe.insert();
+                        Endabgabe.refresh();
+                    }
                 }
             }
         }
-        return punkte;
+        return Endabgabe.punkte;
     }
+    Endabgabe.essen = essen;
     function skalieren() {
         if (meiner.t <= 0) {
             //game over
@@ -93,7 +117,6 @@ var Endabgabe;
     }
     function update() {
         startAnimation();
-        //window.setTimeout(update, 1000 / fps);
         Endabgabe.crc.clearRect(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
         Endabgabe.crc.putImageData(imageData, 0, 0);
         essen();
@@ -102,7 +125,6 @@ var Endabgabe;
             alles[i].update();
         }
     }
-    let timeout;
     function startAnimation() {
         timeout = window.setTimeout(update, 1000 / fps);
     }
@@ -121,7 +143,7 @@ var Endabgabe;
     function zeigScore() {
         document.getElementById("score").innerHTML = "";
         let highScore = document.createElement("div");
-        highScore.innerHTML = `aktueller Punktestand: ${punkte}`;
+        highScore.innerHTML = `aktueller Punktestand: ${Endabgabe.punkte}`;
         document.getElementById("score").appendChild(highScore);
     }
     function hintergrund() {
