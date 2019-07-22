@@ -22,7 +22,7 @@ namespace A12 {
         for (let i: number = 0; i < 15; i++) {//glücklich
             let grins: Gluecklich = new Gluecklich();
             alles.push(grins);
-            grins.draw();
+            //grins.draw();
         }
 
         for (let i: number = 0; i < 4; i++) {//schrei
@@ -48,6 +48,10 @@ namespace A12 {
             alles.push(blubBlub);
             blubBlub.draw();
         }
+        let meiner: Meiner = new Meiner();
+        alles.push(meiner);
+        meiner.draw();
+
         update();
 
     }
