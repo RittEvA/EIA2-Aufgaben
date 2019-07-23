@@ -72,4 +72,4 @@ var Endabgabe;
     }
     Endabgabe.Meiner2 = Meiner2;
 })(Endabgabe || (Endabgabe = {}));
-//# sourceMappingURL=Knochen.js.map
+//# sourceMappingURL=Meiner2.js.map

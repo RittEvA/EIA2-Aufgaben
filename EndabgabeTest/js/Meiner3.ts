@@ -5,6 +5,16 @@ namespace Endabgabe {
             super();
         }
         draw() {
+            //Rückenflosse
+            crc.beginPath();
+            crc.moveTo(this.x - 30, this.y - 20);
+            crc.lineTo(this.x - 42, this.y - 42);
+            crc.quadraticCurveTo(this.x - 66, this.y - 50, this.x - 90, this.y - 36);
+            crc.lineTo(this.x - 70, this.y - 20);
+            crc.fillStyle = "lightgreen";
+            crc.strokeStyle = "lightgreen";
+            crc.fill();
+            crc.stroke();
             //Körper
             crc.beginPath();
             crc.moveTo(this.x - 40, this.y - 7);

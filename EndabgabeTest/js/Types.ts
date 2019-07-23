@@ -1,5 +1,4 @@
-
-interface HighScore{
+interface HighScore {
     [key: string]: string;
 }
 

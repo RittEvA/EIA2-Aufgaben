@@ -5,7 +5,7 @@ var Endabgabe;
             super();
             this.y = Math.random() * Endabgabe.canvas.width;
             this.x = Math.random() * Endabgabe.canvas.height - 300;
-            this.t = 2;
+            this.t = 4;
             this.dx = Math.random() * 10 - 10;
             this.dy = 0;
         }

@@ -18,7 +18,7 @@ var Endabgabe;
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
-        xhr.addEventListener("readystatechange", _callback);
+        xhr.addEventListener("readystatechange", _callback); //wartet auf Antwort
         xhr.send();
     }
     function handleInsertResponse(_event) {
@@ -30,18 +30,27 @@ var Endabgabe;
     function handleFindResponse(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let Spieler = JSON.parse(xhr.response);
+            for (let i = 0; i < Spieler.length; i++) {
+                Spieler.sort(Vergleichen);
+            }
+            let text = ``;
+            for (let i = 0; i < 5; i++) {
+                text += `<p>${Spieler[i].name}: ${Spieler[i].score}</p>`;
+            }
+            document.getElementById("BestenListe").innerHTML += text;
         }
     }
-    function search(_event) {
-        let inputs = document.getElementsByTagName("input");
-        let query = "command=search";
-        query += "&matrikel=" + inputs[3].value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
+    function Vergleichen(_a, _b) {
+        let highA = _a.score;
+        let highB = _b.score;
+        if (highA < highB) {
+            return 1;
+        }
+        if (highA > highB) {
+            return -1;
+        }
+        return 0;
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=DBClient.js.map

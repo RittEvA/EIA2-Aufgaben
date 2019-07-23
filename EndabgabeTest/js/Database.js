@@ -6,15 +6,15 @@ let databaseURL = "mongodb://localhost:27017";
 let databaseName = "Test";
 let db;
 let player;
-// running on heroku?
+// Läuft es auf heroku?
 if (process.env.NODE_ENV == "production") {
     // databaseURL = "mongodb+srv://username:password@hostname:port/database";
     databaseURL = "mongodb+srv://dannsair:Eia2Kunst4@cluster0-1bzll.mongodb.net/test?retryWrites=true";
     databaseName = "eia2";
 }
-// try to connect to database, then activate callback "handleConnect" 
+//versucht Verbindung zur Dantenbank aufzubauen und aktiviert dann handleConnect
 Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect);
-// connect-handler receives two standard parameters, an error object and a database client object
+//erhält zwei Standardparameter (error object, database client object)
 function handleConnect(_e, _client) {
     if (_e)
         console.log("Unable to connect to database, error: ", _e);
@@ -25,40 +25,29 @@ function handleConnect(_e, _client) {
     }
 }
 function insert(_doc) {
-    // try insertion then activate callback "handleInsert"
+    // hinzufügen und aktivieren der handleInsert
     player.insertOne(_doc, handleInsert);
 }
 exports.insert = insert;
-// insertion-handler receives an error object as standard parameter
+//erhält ein error object in Form eines Standardparameters
 function handleInsert(_e) {
     console.log("Database insertion returned -> " + _e);
 }
-// try to fetch all documents from database, then activate callback
+//holt alle Documente der Datenbank und aktiviert callback
 function findAll(_callback) {
-    // cursor points to the retreived set of documents in memory
-    var cursor = player.find();
-    // try to convert to array, then activate callback "prepareAnswer"
+    // cursor zeigt auf eine abrufbaren Satz von Documenten im Speicher
+    let cursor = player.find();
+    //versuch alles in ein Arry zu converieren und prepAnswer auslösen
     cursor.toArray(prepareAnswer);
-    // toArray-handler receives two standard parameters, an error object and the array
-    // implemented as inner function, so _callback is in scope
+    //toArray-handler erhält zwei standardmäßige Parameter(error object, Array)
+    //ist als inner function eingebaut, _callback ist im Geltungsbereich
     function prepareAnswer(_e, spielerArray) {
         if (_e)
             _callback("Error" + _e);
         else
-            // stringify creates a json-string, passed it back to _callback
+            //stringify baut einen JSON-string, der an _callback zurückgegeben wird
             _callback(JSON.stringify(spielerArray));
     }
 }
 exports.findAll = findAll;
-/*export function searchMat(_mat:matDaten, _callback:Function):void{
-    var cursor: Mongo.Cursor = students.find(_mat);
-    cursor.toArray(prepareAnswer);
-    function prepareAnswer(_e: Mongo.MongoError, studentArray: StudentData[]): void {
-        if (_e)
-            _callback("Error" + _e);
-        else
-            _callback(JSON.stringify(studentArray));
-
-}
-}*/
 //# sourceMappingURL=Database.js.map

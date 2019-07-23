@@ -5,7 +5,7 @@ namespace Endabgabe {
             super();
             this.y = Math.random() * canvas.width;
             this.x = Math.random() * canvas.height - 300;
-            this.t = 2;
+            this.t = 4;
             this.dx = Math.random() * 10 - 10;
             this.dy = 0;
         }

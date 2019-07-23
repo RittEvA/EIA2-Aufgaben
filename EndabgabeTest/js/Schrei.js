@@ -5,7 +5,7 @@ var Endabgabe;
             super();
             this.x = Math.random() * Endabgabe.canvas.width;
             this.y = Math.random() * Endabgabe.canvas.height - 200;
-            this.t = 5;
+            this.t = 8;
             this.dx = Math.random() * 15 - 15;
             this.dy = 0;
         }
@@ -47,9 +47,9 @@ var Endabgabe;
             Endabgabe.crc.closePath();
         }
         move() {
-            if (this.x > 1300) {
-                this.y = Math.random() * 700 - 200;
-                this.x = 0;
+            if (this.x < -130) {
+                this.x = 1220;
+                this.y = Math.random() * 700 - 300;
             }
             this.x += this.dx;
             this.y += this.dy;

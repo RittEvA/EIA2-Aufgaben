@@ -19,7 +19,7 @@ function handleRequest(_request, _response) {
     let query = Url.parse(_request.url, true).query;
     let command = query["command"];
     switch (command) {
-        case "insert":
+        case "insert": //speicher bitte den Spieler mit erreichten Punkten
             let player = {
                 name: query["name"],
                 score: parseInt(query["score"]),
@@ -27,16 +27,10 @@ function handleRequest(_request, _response) {
             Database.insert(player);
             respond(_response, "storing data");
             break;
-        case "refresh":
+        case "refresh": //nimm alles aus der Datenbank
             Database.findAll(findCallback);
             break;
-        //case "search":
-        //let matNumber:ScoreData={
-        //    matrikel:parseInt(query["matrikel"])
-        //}
-        // Database.searchMat(matNumber, findCallback);
-        //break;
-        default:
+        default: //fals du den command nicht kennst schreib das in deine Antwort
             respond(_response, "unknown command: " + command);
             break;
     }
@@ -46,7 +40,6 @@ function handleRequest(_request, _response) {
     }
 }
 function respond(_response, _text) {
-    //console.log("Preparing response: " + _text);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.write(_text);

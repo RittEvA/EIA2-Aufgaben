@@ -36,8 +36,8 @@ function init(): void {
         zeichneKnochen(x, y);
     }
     for (let i: number = 0; i < 2; i++) {//Meiner2
-        let x: number = 400;
-        let y: number = 350;
+        let x: number = 500;
+        let y: number = 400;
         zeichneMeiner2(x, y);
     }
     for (let i: number = 0; i < 8; i++) {//Pflanze
@@ -458,88 +458,75 @@ function zeichneFischstäbchen(_x: number, _y: number): void {
 
 }
 function zeichneMeiner2(_x: number, _y: number): void {//Gerippe
-    //Körper
+    //hänkel
     crc.beginPath();
-    crc.moveTo(_x - 40, _y - 7);
-    crc.lineTo(_x - 60, _y - 5);
-    crc.quadraticCurveTo(_x - 62, _y - 20, _x - 73, _y - 28);//spitze1
-    crc.quadraticCurveTo(_x - 65, _y - 20, _x - 66, _y - 4);
-    crc.lineTo(_x - 80, _y - 3);
-    crc.quadraticCurveTo(_x - 80, _y - 22, _x - 90, _y - 22);//spitze2
-    crc.quadraticCurveTo(_x - 85, _y - 20, _x - 88, _y - 2);
-    crc.lineTo(_x - 100, _y);
-    crc.quadraticCurveTo(_x - 100, _y - 15, _x - 110, _y - 17);//spitze3
-    crc.quadraticCurveTo(_x - 106, _y - 12, _x - 110, _y);
-    crc.lineTo(_x - 120, _y + 1);
-    crc.lineTo(_x - 145, _y - 40);
-    crc.lineTo(_x - 148, _y - 8);
-    crc.lineTo(_x - 136, _y + 1);
-    crc.lineTo(_x - 148, _y + 15);
-    crc.lineTo(_x - 145, _y + 48);
-    crc.lineTo(_x - 120, _y + 8);
-    crc.lineTo(_x - 110, _y + 8);
-    crc.quadraticCurveTo(_x - 106, _y + 12, _x - 110, _y + 24);//spitzezu3
-    crc.quadraticCurveTo(_x - 100, _y + 15, _x - 100, _y + 9);
-    crc.lineTo(_x - 88, _y + 10);
-    crc.quadraticCurveTo(_x - 85, _y + 20, _x - 90, _y + 28);//spitzeZu2
-    crc.quadraticCurveTo(_x - 80, _y + 22, _x - 80, _y + 11);
-    crc.lineTo(_x - 66, _y + 12);
-    crc.quadraticCurveTo(_x - 65, _y + 20, _x - 66, _y + 32);//spitzeZu1
-    crc.quadraticCurveTo(_x - 62, _y + 20, _x - 60, _y + 13);
-    crc.lineTo(_x - 40, _y + 14);
-    crc.fillStyle = "lightgrey";
-    crc.strokeStyle = "lightgrey";
+    crc.moveTo(_x+13,_y-33);
+    crc.lineTo(_x+25,_y-48);
+    crc.bezierCurveTo(_x+30,_y-64,_x+47,_y-62,_x+52,_y-69);
+    crc.quadraticCurveTo(_x+58,_y-73,_x+65,_y-59);
+    crc.lineTo(_x+62,_y-57);
+    crc.quadraticCurveTo(_x+59,_y-68,_x+53,_y-63);
+    crc.lineTo(_x+44,_y-52);
+    crc.quadraticCurveTo(_x+36,_y-53,_x+43,_y-44);
+    crc.lineTo(_x+13,_y-33)
+    crc.fillStyle = "#b09800";
+    crc.strokeStyle = "#b09800";
     crc.fill();
     crc.stroke();
     crc.closePath();
-    //Rückenflosse
+    //Grundtüte
     crc.beginPath();
-    crc.moveTo(_x-30,_y-20);
-    crc.lineTo(_x-42,_y-42);
-    crc.quadraticCurveTo(_x-66,_y-50,_x-90,_y-36);
-    crc.lineTo(_x-70,_y-20);
-    crc.fillStyle = "lightgreen";
-    crc.strokeStyle = "lightgreen";
+    crc.moveTo(_x,_y);
+    crc.bezierCurveTo(_x,_y-60,_x+50,_y-35,_x+57,_y-55);
+    crc.quadraticCurveTo(_x+85,_y-65,_x+95,_y-50);
+    crc.bezierCurveTo(_x+104,_y-26,_x+75,_y-20,_x+77,_y-14);
+    crc.quadraticCurveTo(_x+82,_y-4,_x+75,_y);
+    crc.bezierCurveTo(_x+66,_y+24,_x+40,_y+4,_x+35,_y+7);
+    crc.lineTo(_x+21,_y+15);
+    crc.quadraticCurveTo(_x+14,_y+12,_x+17,_y+20);
+    crc.quadraticCurveTo(_x+6,_y+20,_x+4,_y+13);
+    crc.quadraticCurveTo(_x+10,_y+5,_x,_y);
+    crc.fillStyle = "#ffdc00";
+    crc.strokeStyle = "#b09800";
+    //Hänkelloch
     crc.fill();
     crc.stroke();
-    //Kopf
     crc.beginPath();
-    crc.moveTo(_x, _y);
-    crc.quadraticCurveTo(_x - 20, _y - 25, _x - 54, _y - 30);
-    crc.quadraticCurveTo(_x-110,_y-17, _x,_y);//Körper zu schwanz
-    crc.quadraticCurveTo(_x - 95, _y - 0, _x - 110, _y + 24);//überkörper
-    crc.quadraticCurveTo(_x - 20, _y + 25, _x - 4, _y + 10);
-    crc.lineTo(_x - 20, _y + 9);
-    crc.lineTo(_x, _y);
-    crc.fillStyle = "green";
-    crc.strokeStyle = "green";
-    crc.fill();
-    crc.stroke();
-    //Flosse
-    crc.beginPath();
-    crc.moveTo(_x-54,_y+24);
-    crc.quadraticCurveTo(_x-60,_y+42,_x-72,_y+52)
-    crc.lineTo(_x-76,_y+30);
-    crc.lineTo(_x-66,_y+24);
-    crc.lineTo(_x-54,_y+24)
-    crc.fillStyle = "lightgreen";
-    crc.strokeStyle = "lightgreen";
-    crc.fill();
-    crc.stroke();
-    //Auge
-    crc.beginPath();
-    crc.arc(_x - 25, _y - 5, 10, 0, 2 * Math.PI);
-    crc.fillStyle = "white";
-    crc.strokeStyle = "white";
+    crc.moveTo(_x+45,_y-34);
+    crc.bezierCurveTo(_x+48,_y-48,_x+62,_y-40,_x+65,_y-47);
+    crc.quadraticCurveTo(_x+76,_y-57,_x+85,_y-48);
+    crc.quadraticCurveTo(_x+100,_y-33,_x+80,_y-28);
+    crc.bezierCurveTo(_x+68,_y-35,_x+57,_y-20,_x+50,_y-25);
+    crc.quadraticCurveTo(_x+43,_y-30,_x+45,_y-34)
+    crc.fillStyle = "#66d0f4";
+    crc.strokeStyle = "#b09800";
     crc.fill();
     crc.stroke();
     crc.closePath();
-    //Pupille
+    //Augenbraue
     crc.beginPath();
-    crc.arc(_x - 25, _y - 5, 5, 0, 2 * Math.PI);
+    crc.moveTo(_x+15,_y-18);
+    crc.quadraticCurveTo(_x+20,_y-15,_x+22,_y-17);
+    crc.lineTo(_x+33,_y-23);
+    crc.lineTo(_x+40,_y-20);
+    crc.lineTo(_x+34,_y-21);
+    crc.lineTo(_x+18,_y-12);
+    crc.lineTo(_x+15,_y-18);
     crc.fillStyle = "black";
     crc.strokeStyle = "black";
     crc.fill();
     crc.stroke();
     crc.closePath();
+    //Auge: Pupille
+    crc.beginPath();
+    crc.arc(_x+25,_y-14,2.5,0,2*Math.PI)
+    crc.fillStyle = "black";
+    crc.strokeStyle = "black";
+    crc.fill();
+    crc.stroke();
+    crc.closePath();
+
+    
+    
+
 }

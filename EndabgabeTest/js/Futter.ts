@@ -4,7 +4,7 @@ namespace Endabgabe {
         constructor() {
             super();
             this.r = 5;
-            this.t = 0.5;
+            this.t = 6;
             this.dx = 0;
             this.dy = 5;
         }

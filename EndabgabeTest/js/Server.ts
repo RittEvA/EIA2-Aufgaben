@@ -1,6 +1,3 @@
-
-
-
 import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./Database";
@@ -16,8 +13,6 @@ server.addListener("listening", handleListen);
 server.addListener("request", handleRequest);
 server.listen(port);
 
-
-
 function handleListen(): void {
     console.log("Listening on port: " + port);
 }
@@ -25,11 +20,11 @@ function handleListen(): void {
 function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("Request received");
 
-    let query: HighScore = <HighScore> Url.parse(_request.url, true).query;
+    let query: HighScore = <HighScore>Url.parse(_request.url, true).query;
     let command: string = query["command"];
 
     switch (command) {
-        case "insert":
+        case "insert"://speicher bitte den Spieler mit erreichten Punkten
             let player: ScoreData = {
                 name: query["name"],
                 score: parseInt(query["score"]),
@@ -37,16 +32,12 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
             Database.insert(player);
             respond(_response, "storing data");
             break;
-        case "refresh":
+
+        case "refresh"://nimm alles aus der Datenbank
             Database.findAll(findCallback);
             break;
-        //case "search":
-            //let matNumber:ScoreData={
-            //    matrikel:parseInt(query["matrikel"])
-            //}
-           // Database.searchMat(matNumber, findCallback);
-            //break;
-        default:
+
+        default://fals du den command nicht kennst schreib das in deine Antwort
             respond(_response, "unknown command: " + command);
             break;
     }
@@ -58,7 +49,6 @@ function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerRes
 }
 
 function respond(_response: Http.ServerResponse, _text: string): void {
-    //console.log("Preparing response: " + _text);
     _response.setHeader("Access-Control-Allow-Origin", "*");
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.write(_text);

@@ -1,17 +1,18 @@
 var Endabgabe;
 (function (Endabgabe) {
     document.addEventListener("DOMContentLoaded", init);
+    Endabgabe.Spieler = [];
+    Endabgabe.punkte = 0;
     let alles = [];
     let fps = 30;
+    let timeout;
     let imageData;
-    let meiner;
     let grins;
     let schrei;
     let fischstab;
     let blubBlub;
     let geist;
-    let timeout;
-    Endabgabe.punkte = 0;
+    let tuete;
     function init() {
         Endabgabe.canvas = document.getElementsByTagName("canvas")[0];
         Endabgabe.canvas.addEventListener("click", fuettern);
@@ -19,6 +20,11 @@ var Endabgabe;
         document.addEventListener('keydown', bewegMeiner);
         hintergrund();
         imageData = Endabgabe.crc.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
+        document.getElementById("start").addEventListener("click", spielStart);
+        Endabgabe.refresh();
+    }
+    Endabgabe.init = init;
+    function spielStart() {
         for (let i = 0; i < 15; i++) { //glücklich
             grins = new Endabgabe.Gluecklich();
             alles.push(grins);
@@ -27,11 +33,7 @@ var Endabgabe;
             schrei = new Endabgabe.Schrei();
             alles.push(schrei);
         }
-        /*for (let i: number = 0; i < 5; i++) {//Gerippe
-            let gerippe: Knochen = new Knochen();
-            alles.push(gerippe);
-        }*/
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 2; i++) { //Geist
             geist = new Endabgabe.Geist();
             alles.push(geist);
         }
@@ -43,78 +45,14 @@ var Endabgabe;
             blubBlub = new Endabgabe.BlubStrom();
             alles.push(blubBlub);
         }
-        meiner = new Endabgabe.Meiner();
-        alles.push(meiner);
+        Endabgabe.meiner = new Endabgabe.Meiner(); //der Fisch des Spielers
+        alles.push(Endabgabe.meiner);
         //let gerippe: Knochen = new Knochen();
         //alles.push(gerippe);
         update();
+        //refresh();
     }
-    Endabgabe.init = init;
-    function essen() {
-        for (let i = 0; i < alles.length; i++) {
-            let d = Math.hypot(alles[i].x - meiner.x, alles[i].y - meiner.y); //Distanz zwischen Fisch des Spielers und den anderen Fischen
-            if ((meiner.t == alles[i].t || meiner.t > alles[i].t) && alles[i] != meiner && alles[i].t != 0) {
-                if (d < 30) {
-                    alles.splice(i, 1);
-                    meiner.s += 0.2;
-                    meiner.t += 0.2;
-                    Endabgabe.punkte += 1;
-                    if (alles[i] instanceof Endabgabe.Fischstaebchen) {
-                        fischstab = new Endabgabe.Fischstaebchen();
-                        alles.push(fischstab);
-                    }
-                    else if (alles[i] instanceof Endabgabe.Schrei) {
-                        schrei = new Endabgabe.Schrei();
-                        alles.push(schrei);
-                    }
-                    else if (alles[i] instanceof Endabgabe.Geist) {
-                        for (let i = 0; i < 3; i++) {
-                            geist = new Endabgabe.Geist();
-                            alles.push(geist);
-                        }
-                    }
-                    else if (alles[i] instanceof Endabgabe.Gluecklich) {
-                        grins = new Endabgabe.Gluecklich();
-                        alles.push(grins);
-                    }
-                }
-            }
-            else if (meiner.t < alles[i].t && alles[i] != meiner && alles[i].t != 0) {
-                if (d < 30) { //stirb und 
-                    alles.splice(0, 1);
-                    stopAnimation();
-                    Endabgabe.spielerName = prompt("Dein Score: " + Endabgabe.punkte + " Wie heißt du denn?", "...");
-                    if (Endabgabe.spielerName != "") {
-                        Endabgabe.insert();
-                        Endabgabe.refresh();
-                    }
-                }
-            }
-        }
-        return Endabgabe.punkte;
-    }
-    Endabgabe.essen = essen;
-    function skalieren() {
-        if (meiner.t <= 0) {
-            //game over
-        }
-        else if (meiner.t <= 3) {
-            //draw();
-        }
-        else if (meiner.t > 3 || meiner.t <= 6) {
-            //drawNew();
-        }
-        else if (meiner.t > 6 || meiner.t < 9) {
-            //drawNewer();
-        }
-        else if (meiner.t == 9) {
-            //drawNewerNew();
-        }
-        else if (meiner.t > 9) {
-            //drawNewerNew();
-            meiner.s += 0.2;
-        }
-    }
+    Endabgabe.spielStart = spielStart;
     function update() {
         startAnimation();
         Endabgabe.crc.clearRect(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
@@ -128,8 +66,88 @@ var Endabgabe;
     function startAnimation() {
         timeout = window.setTimeout(update, 1000 / fps);
     }
+    function essen() {
+        for (let i = 0; i < alles.length; i++) {
+            let d = Math.hypot(alles[i].x - Endabgabe.meiner.x, alles[i].y - Endabgabe.meiner.y); //Distanz zwischen Fisch des Spielers und den anderen Fischen
+            if ((Endabgabe.meiner.t == alles[i].t || Endabgabe.meiner.t > alles[i].t) && alles[i] != Endabgabe.meiner && alles[i].t != 0) {
+                if (d < 30) {
+                    //meiner.s += 0.2;//zur Skalierung/zum Wachsen
+                    //abfage was für ein Fisch gefressen wurde und abhängig davon wird ein/zwei neue Fische gezeichnet
+                    if (alles[i] instanceof Endabgabe.Fischstaebchen) {
+                        alles.splice(i, 1);
+                        Endabgabe.meiner.t += 0.5; //der Typ des Fisches wird größer
+                        Endabgabe.punkte += 2;
+                        fischstab = new Endabgabe.Fischstaebchen();
+                        alles.push(fischstab);
+                        tuete = new Endabgabe.Tuete();
+                        alles.push(tuete);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Schrei) {
+                        alles.splice(i, 1);
+                        Endabgabe.meiner.t += 3; //der Typ des Fisches wird größer
+                        Endabgabe.punkte += 3;
+                        schrei = new Endabgabe.Schrei();
+                        alles.push(schrei);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Geist) {
+                        alles.splice(i, 1);
+                        Endabgabe.meiner.t -= 2; //der Typ des Fisches wird größer
+                        Endabgabe.punkte += 4;
+                        geist = new Endabgabe.Geist();
+                        alles.push(geist);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Gluecklich) {
+                        alles.splice(i, 1);
+                        Endabgabe.meiner.t += 0.5; //der Typ des Fisches wird größer
+                        Endabgabe.punkte += 1;
+                        grins = new Endabgabe.Gluecklich();
+                        alles.push(grins);
+                    }
+                    else if (alles[i] instanceof Endabgabe.BlubStrom) {
+                        alles.splice(i, 1);
+                        Endabgabe.meiner.t += 0.1; //der Typ des Fisches wird größer
+                        Endabgabe.punkte += 0.5;
+                        blubBlub = new Endabgabe.BlubStrom();
+                        alles.push(geist);
+                    }
+                    else if (alles[i] instanceof Endabgabe.Tuete) {
+                        stopAnimation();
+                        alert("Plastik ist einfach nicht gesund");
+                        Ende();
+                    }
+                }
+            }
+            else if (Endabgabe.meiner.t < alles[i].t && alles[i] != Endabgabe.meiner && alles[i].t != 0) {
+                if (d < 30) { //stirb und stoppe die Animation
+                    Ende();
+                }
+            }
+        }
+        return Endabgabe.punkte;
+    }
+    Endabgabe.essen = essen;
+    function Ende() {
+        alles.splice(0, 1);
+        stopAnimation();
+        alert("Bist du etwa gestorben?");
+        Endabgabe.spielerName = prompt("Dein Score: " + Endabgabe.punkte + " Wie heißt du denn?", "...");
+        if (Endabgabe.spielerName != "null" && Endabgabe.spielerName != "..." && Endabgabe.spielerName != "") {
+            Endabgabe.insert();
+            window.location.reload();
+        }
+        else {
+            window.location.reload();
+        }
+    }
+    Endabgabe.Ende = Ende;
     function stopAnimation() {
         window.clearTimeout(timeout);
+    }
+    function zeigScore() {
+        document.getElementById("score").innerHTML = "";
+        let highScore = document.createElement("div");
+        highScore.innerHTML = `aktueller Punktestand: ${Endabgabe.punkte} Fischgröße: ${Endabgabe.meiner.t}`;
+        document.getElementById("score").appendChild(highScore);
     }
     function fuettern(_event) {
         let x = _event.clientX;
@@ -140,11 +158,36 @@ var Endabgabe;
         alles.push(kruemel);
         kruemel.draw();
     }
-    function zeigScore() {
-        document.getElementById("score").innerHTML = "";
-        let highScore = document.createElement("div");
-        highScore.innerHTML = `aktueller Punktestand: ${Endabgabe.punkte}`;
-        document.getElementById("score").appendChild(highScore);
+    //Steuerung des Fisches
+    function bewegMeiner(_event) {
+        switch (_event.keyCode) {
+            case 37:
+                Endabgabe.meiner.x -= 15; //links
+                if (Endabgabe.meiner.x < 0) {
+                    Endabgabe.meiner.x = 600;
+                }
+                break;
+            case 38: //hoch
+                Endabgabe.meiner.y -= 15;
+                if (Endabgabe.meiner.y < 0) {
+                    Endabgabe.meiner.y = 350;
+                }
+                break;
+            case 39: //rechts
+                Endabgabe.meiner.x += 15;
+                if (Endabgabe.meiner.x > 1200) {
+                    Endabgabe.meiner.x = 600;
+                }
+                break;
+            case 40: //unten
+                Endabgabe.meiner.y += 15;
+                if (Endabgabe.meiner.y > 700) {
+                    Endabgabe.meiner.y = 350;
+                }
+                break;
+            default:
+                Endabgabe.meiner.y += 0;
+        }
     }
     function hintergrund() {
         let wasser = new Path2D();
@@ -241,37 +284,6 @@ var Endabgabe;
         Endabgabe.crc.strokeStyle = "green";
         Endabgabe.crc.stroke();
         Endabgabe.crc.closePath();
-    }
-    //Steuerung des Fisches
-    function bewegMeiner(_event) {
-        switch (_event.keyCode) {
-            case 37:
-                meiner.x -= 15; //links
-                if (meiner.x < 0) {
-                    meiner.x = 600;
-                }
-                break;
-            case 38: //hoch
-                meiner.y -= 15;
-                if (meiner.y < 0) {
-                    meiner.y = 350;
-                }
-                break;
-            case 39: //rechts
-                meiner.x += 15;
-                if (meiner.x > 1200) {
-                    meiner.x = 600;
-                }
-                break;
-            case 40: //unten
-                meiner.y += 15;
-                if (meiner.y > 700) {
-                    meiner.y = 350;
-                }
-                break;
-            default:
-                meiner.y += 0;
-        }
     }
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=canvas.js.map

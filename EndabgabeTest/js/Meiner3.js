@@ -5,6 +5,16 @@ var Endabgabe;
             super();
         }
         draw() {
+            //Rückenflosse
+            Endabgabe.crc.beginPath();
+            Endabgabe.crc.moveTo(this.x - 30, this.y - 20);
+            Endabgabe.crc.lineTo(this.x - 42, this.y - 42);
+            Endabgabe.crc.quadraticCurveTo(this.x - 66, this.y - 50, this.x - 90, this.y - 36);
+            Endabgabe.crc.lineTo(this.x - 70, this.y - 20);
+            Endabgabe.crc.fillStyle = "lightgreen";
+            Endabgabe.crc.strokeStyle = "lightgreen";
+            Endabgabe.crc.fill();
+            Endabgabe.crc.stroke();
             //Körper
             Endabgabe.crc.beginPath();
             Endabgabe.crc.moveTo(this.x - 40, this.y - 7);

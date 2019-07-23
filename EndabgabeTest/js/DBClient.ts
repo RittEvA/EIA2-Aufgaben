@@ -3,7 +3,7 @@ namespace Endabgabe {
     let serverAddress: string = "https://eia2-rittevaa.herokuapp.com";
 
 
-    export function insert(): void {
+    export function insert(): void {//schreibt den Teilquery für den Server
         let query: string = "command=insert";
         query += "&name=" + spielerName;
         query += "&score=" + punkte;
@@ -16,34 +16,49 @@ namespace Endabgabe {
         sendRequest(query, handleFindResponse);
     }
 
-    function sendRequest(_query: string, _callback: EventListener): void {
+    function sendRequest(_query: string, _callback: EventListener): void {//schreibt Query fertig und schickt ihn ab
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
-        xhr.addEventListener("readystatechange", _callback);
+        xhr.addEventListener("readystatechange", _callback);//wartet auf Antwort
         xhr.send();
     }
 
-    function handleInsertResponse(_event: ProgressEvent): void {
+    function handleInsertResponse(_event: ProgressEvent): void {//Antwort das die Daten gespeichert werden
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
             alert(xhr.response);
         }
     }
-
-    function handleFindResponse(_event: ProgressEvent): void {
+    
+    function handleFindResponse(_event: ProgressEvent): void {//um den Score anzuzeigen
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let Spieler: ScoreData[] = JSON.parse(xhr.response);
+            for (let i: number = 0; i < Spieler.length; i++) {
+                Spieler.sort(Vergleichen);
+            }
+            let text: string=``;
+            for (let i: number = 0; i < 5; i++) {
+                text += `<p>${Spieler[i].name}: ${Spieler[i].score}</p>`;
+                
+            }
+            document.getElementById("BestenListe").innerHTML += text;
         }
+
+
+
     }
-    function search(_event: Event): void {
-        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let query: string = "command=search";
-        query += "&matrikel=" + inputs[3].value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
+
+    function Vergleichen(_a: ScoreData, _b: ScoreData) {
+        let highA: number = _a.score;
+        let highB: number = _b.score;
+        if (highA < highB) {
+            return 1;
+        }
+        if (highA > highB) {
+            return -1;
+        }
+        return 0;
     }
+
 }
