@@ -1,13 +1,14 @@
-namespace A12 {
-    export class Futter extends Bewegung{
-        r:number;
-        constructor(){
+namespace Endabgabe {
+    export class Futter extends Bewegung {
+        r: number;
+        constructor() {
             super();
-            this.r=5;
+            this.r = 5;
+            this.t = 6;
             this.dx = 0;
             this.dy = 5;
         }
-        draw():void{
+        draw(): void {
             crc.beginPath();
             crc.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
             crc.fillStyle = "brown";

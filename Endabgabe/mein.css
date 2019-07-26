@@ -1,0 +1,7 @@
+canvas{float: left;}
+span{float: left;}
+div{
+    position: absolute;
+    margin:0;
+    right:0;
+}

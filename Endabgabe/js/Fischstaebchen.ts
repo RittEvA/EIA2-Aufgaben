@@ -1,9 +1,11 @@
-namespace A12{
-    export class Fischstaebchen extends Bewegung{
-        constructor(){
+namespace Endabgabe {
+
+    export class Fischstaebchen extends Bewegung {
+        constructor() {
             super();
             this.y = Math.random() * canvas.width;
             this.x = Math.random() * canvas.height - 300;
+            this.t = 4;
             this.dx = Math.random() * 10 - 10;
             this.dy = 0;
         }
@@ -82,16 +84,16 @@ namespace A12{
         }
 
         move(): void {
-           
+
             if (this.x < -130) {
                 this.x = 1220;
-                this.y = Math.random() * 700 - 300; 
+                this.y = Math.random() * 700 - 300;
             }
 
             this.x += this.dx;
             this.y += this.dy;
             this.draw();
-        
+
         }
     }
 }

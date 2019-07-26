@@ -1,20 +1,20 @@
-var A12;
-(function (A12) {
-    class Bewegung {
+var Endabgabe;
+(function (Endabgabe) {
+    class Bewegung extends Endabgabe.Objekt {
         constructor() {
-            //
-        }
-        draw() {
-            //
+            super();
         }
         update() {
             this.move();
             this.draw();
         }
         move() {
-            this.x += 2;
+            //
+        }
+        draw() {
+            //
         }
     }
-    A12.Bewegung = Bewegung;
-})(A12 || (A12 = {}));
+    Endabgabe.Bewegung = Bewegung;
+})(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=Bewegung.js.map

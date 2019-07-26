@@ -1,9 +1,11 @@
-namespace A12{
-    export class Gluecklich extends Bewegung{
-        constructor(){
+namespace Endabgabe {
+
+    export class Gluecklich extends Bewegung {
+        constructor() {
             super();
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height - 100;
+            this.t = 0.5;
             this.dx = Math.random() * 10 - 10;
             this.dy = 0;
         }
@@ -62,7 +64,7 @@ namespace A12{
         }
 
         move(): void {
-            
+
             if (this.x < -100) {
 
                 this.y = Math.random() * 700 - 100;

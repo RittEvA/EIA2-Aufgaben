@@ -1,26 +1,25 @@
-namespace A12 {
-    export class Bewegung {
-        x: number;
-        y: number;
+namespace Endabgabe {
+
+    export class Bewegung extends Objekt {
         dx: number;
         dy: number;
 
-        constructor(){
-            //
-        }
 
-        draw(): void {
-            //
+        constructor() {
+            super();
         }
-
         update(): void {
             this.move();
             this.draw();
         }
 
         move(): void {
-            this.x += 2;
-        
+            //
+
         }
+        draw() {
+            //
+        }
+
     }
 }
