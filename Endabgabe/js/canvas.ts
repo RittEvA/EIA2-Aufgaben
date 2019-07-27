@@ -52,10 +52,10 @@ namespace Endabgabe {
             alles.push(fischstab);
         }
 
-        for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
-            blubBlub = new BlubStrom();
-            alles.push(blubBlub);
-        }
+        //for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
+           // blubBlub = new BlubStrom();
+           // alles.push(blubBlub);
+        //}
 
         meiner = new Meiner();//der Fisch des Spielers
         alles.push(meiner);
@@ -126,13 +126,13 @@ namespace Endabgabe {
                         grins = new Gluecklich();
                         alles.push(grins);
                     }
-                    else if (alles[i] instanceof BlubStrom) {
+                    /*else if (alles[i] instanceof BlubStrom) {
                         alles.splice(i, 1);
                         meiner.t += 0.1;//der Typ des Fisches wird größer
                         punkte += 0.5;
                         blubBlub = new BlubStrom();
                         alles.push(blubBlub);
-                    }
+                    }*/
                     else if (alles[i] instanceof Tuete) {
                         stopAnimation();
                         alert("Plastik ist einfach nicht gesund");
