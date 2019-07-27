@@ -44,9 +44,6 @@ namespace Endabgabe {
             }
             document.getElementById("BestenListe").innerHTML += text;
         }
-
-
-
     }
 
     function Vergleichen(_a: ScoreData, _b: ScoreData): number {
