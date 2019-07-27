@@ -34,7 +34,7 @@ var Endabgabe;
             schrei = new Endabgabe.Schrei();
             alles.push(schrei);
         }
-        for (let i = 0; i < 2; i++) { //Geist
+        for (let i = 0; i < 3; i++) { //Geist
             geist = new Endabgabe.Geist();
             alles.push(geist);
         }
@@ -42,10 +42,10 @@ var Endabgabe;
             fischstab = new Endabgabe.Fischstaebchen();
             alles.push(fischstab);
         }
-        for (let i = 0; i < 80; i++) { //Blubberblasen Strom
-            blubBlub = new Endabgabe.BlubStrom();
-            alles.push(blubBlub);
-        }
+        //for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
+        // blubBlub = new BlubStrom();
+        // alles.push(blubBlub);
+        //}
         Endabgabe.meiner = new Endabgabe.Meiner(); //der Fisch des Spielers
         alles.push(Endabgabe.meiner);
         update();
@@ -71,7 +71,7 @@ var Endabgabe;
                 if (d < 30) {
                     if (Endabgabe.meiner.t > 8) {
                         if (alles[i] instanceof Endabgabe.Geist) {
-                            Endabgabe.meiner.s -= 2;
+                            Endabgabe.meiner.s -= 3;
                         }
                         else {
                             Endabgabe.meiner.s += 0.5;
@@ -91,10 +91,6 @@ var Endabgabe;
                         alles.splice(i, 1);
                         Endabgabe.meiner.t += 3; //der Typ des Fisches wird größer
                         Endabgabe.punkte += 3;
-                        //if(meiner.t<8){
-                        //  meiner.s+=0.1;
-                        //alert(meiner.s);
-                        // }
                         schrei = new Endabgabe.Schrei();
                         alles.push(schrei);
                     }
@@ -109,20 +105,16 @@ var Endabgabe;
                         alles.splice(i, 1);
                         Endabgabe.meiner.t += 0.5; //der Typ des Fisches wird größer
                         Endabgabe.punkte += 1;
-                        // if(meiner.t<8){
-                        //meiner.s+=0.1;
-                        //alert(meiner.s);
-                        //}
                         grins = new Endabgabe.Gluecklich();
                         alles.push(grins);
                     }
-                    else if (alles[i] instanceof Endabgabe.BlubStrom) {
+                    /*else if (alles[i] instanceof BlubStrom) {
                         alles.splice(i, 1);
-                        Endabgabe.meiner.t += 0.1; //der Typ des Fisches wird größer
-                        Endabgabe.punkte += 0.5;
-                        blubBlub = new Endabgabe.BlubStrom();
-                        alles.push(geist);
-                    }
+                        meiner.t += 0.1;//der Typ des Fisches wird größer
+                        punkte += 0.5;
+                        blubBlub = new BlubStrom();
+                        alles.push(blubBlub);
+                    }*/
                     else if (alles[i] instanceof Endabgabe.Tuete) {
                         stopAnimation();
                         alert("Plastik ist einfach nicht gesund");
@@ -142,7 +134,7 @@ var Endabgabe;
     function Ende() {
         alles.splice(0, 1);
         stopAnimation();
-        alert("Bist du etwa gestorben?");
+        //alert("Bist du etwa gestorben?");
         Endabgabe.spielerName = prompt("Dein Score: " + Endabgabe.punkte + " Wie heißt du denn?", "...");
         if (Endabgabe.spielerName != "null" && Endabgabe.spielerName != "..." && Endabgabe.spielerName != "") {
             Endabgabe.insert();
