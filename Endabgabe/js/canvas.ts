@@ -19,11 +19,11 @@ namespace Endabgabe {
     let geist: Geist;
     let tuete: Tuete;
 
-    export function init() {//lädt den Start Bildschirm
+    export function init(): void {//lädt den Start Bildschirm
         canvas = document.getElementsByTagName("canvas")[0];
         crc = canvas.getContext("2d");
         canvas.addEventListener("click", fuettern);
-        document.addEventListener('keydown', bewegMeiner)
+        document.addEventListener('keydown', bewegMeiner);
         document.getElementById("start").addEventListener("click", spielStart);
         hintergrund();
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
@@ -43,7 +43,7 @@ namespace Endabgabe {
             alles.push(schrei);
         }
 
-        for (let i: number = 0; i < 2; i++) {//Geist
+        for (let i: number = 0; i < 3; i++) {//Geist
             geist = new Geist();
             alles.push(geist);
         }
@@ -79,7 +79,7 @@ namespace Endabgabe {
     }
 
     function startAnimation(): void {//Funktion mit Timeoutvariable
-        timeout = window.setTimeout(update, 1000 / fps)
+        timeout = window.setTimeout(update, 1000 / fps);
     }
 
     export function essen(): number {//es wird abgefragt welcher Fisch in meiner Nähe ist und ob er größer ist als ich
@@ -89,7 +89,7 @@ namespace Endabgabe {
                 if (d < 30) {
                     if (meiner.t > 8) {
                         if (alles[i] instanceof Geist) {
-                            meiner.s -= 2;
+                            meiner.s -= 3;
                         }
                         else {
                             meiner.s += 0.5;
@@ -109,10 +109,6 @@ namespace Endabgabe {
                         alles.splice(i, 1);
                         meiner.t += 3;//der Typ des Fisches wird größer
                         punkte += 3;
-                        //if(meiner.t<8){
-                        //  meiner.s+=0.1;
-                        //alert(meiner.s);
-                        // }
                         schrei = new Schrei();
                         alles.push(schrei);
                     }
@@ -127,10 +123,6 @@ namespace Endabgabe {
                         alles.splice(i, 1);
                         meiner.t += 0.5;//der Typ des Fisches wird größer
                         punkte += 1;
-                        // if(meiner.t<8){
-                        //meiner.s+=0.1;
-                        //alert(meiner.s);
-                        //}
                         grins = new Gluecklich();
                         alles.push(grins);
                     }
@@ -139,7 +131,7 @@ namespace Endabgabe {
                         meiner.t += 0.1;//der Typ des Fisches wird größer
                         punkte += 0.5;
                         blubBlub = new BlubStrom();
-                        alles.push(geist);
+                        alles.push(blubBlub);
                     }
                     else if (alles[i] instanceof Tuete) {
                         stopAnimation();
@@ -159,7 +151,7 @@ namespace Endabgabe {
     export function Ende() {
         alles.splice(0, 1);
         stopAnimation();
-        alert("Bist du etwa gestorben?");
+        //alert("Bist du etwa gestorben?");
         spielerName = prompt("Dein Score: " + punkte + " Wie heißt du denn?", "...");
         if (spielerName != "null" && spielerName != "..." && spielerName != "") {
             insert();
@@ -171,7 +163,7 @@ namespace Endabgabe {
     }
 
     function stopAnimation(): void {//aufhören der Animation über die Timeoutvariable
-        window.clearTimeout(timeout)
+        window.clearTimeout(timeout);
     }
 
     function zeigScore(): void {//stellt deine aktuelle Punktzahl über dem Canvas dar
@@ -192,7 +184,7 @@ namespace Endabgabe {
     }
 
     //Steuerung des Fisches
-    function bewegMeiner(_event: KeyboardEvent) {
+    function bewegMeiner(_event: KeyboardEvent): void {
         switch (_event.keyCode) {
             case 37:
                 meiner.x -= 15;//links

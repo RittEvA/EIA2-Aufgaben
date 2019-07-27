@@ -19,8 +19,9 @@ Mongo.MongoClient.connect(databaseURL, { connectTimeoutMS: 8000 }, handleConnect
 
 //erhält zwei Standardparameter (error object, database client object)
 function handleConnect(_e: Mongo.MongoError, _client: Mongo.MongoClient): void {
-    if (_e)
+    if (_e){
         console.log("Unable to connect to database, error: ", _e);
+    }
     else {
         console.log("Connected to database!");
         db = _client.db(databaseName);

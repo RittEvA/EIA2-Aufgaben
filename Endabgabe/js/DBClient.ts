@@ -29,7 +29,7 @@ namespace Endabgabe {
             alert(xhr.response);
         }
     }
-    
+
     function handleFindResponse(_event: ProgressEvent): void {//um den Score anzuzeigen
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -37,10 +37,10 @@ namespace Endabgabe {
             for (let i: number = 0; i < Spieler.length; i++) {
                 Spieler.sort(Vergleichen);
             }
-            let text: string=``;
+            let text: string = ``;
             for (let i: number = 0; i < 5; i++) {
                 text += `<p>${Spieler[i].name}: ${Spieler[i].score}</p>`;
-                
+
             }
             document.getElementById("BestenListe").innerHTML += text;
         }
@@ -49,7 +49,7 @@ namespace Endabgabe {
 
     }
 
-    function Vergleichen(_a: ScoreData, _b: ScoreData) {
+    function Vergleichen(_a: ScoreData, _b: ScoreData): number {
         let highA: number = _a.score;
         let highB: number = _b.score;
         if (highA < highB) {
