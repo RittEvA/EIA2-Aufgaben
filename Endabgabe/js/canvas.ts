@@ -28,10 +28,10 @@ namespace Endabgabe {
         hintergrund();
         imageData = crc.getImageData(0, 0, canvas.width, canvas.height);
         refresh();
-        alert("Dein Fisch(Gerippe):\nlässt sich mit den Pfeiltasten bewegen\nZiel:\nVersuche die anderen Fische zu fressen und an ihnen zu wachsen, ansonsten weiche ihnen aus.\nAuch die Blubberblasen können dir helfen zu wachsen.\nZuerst kannst du die lila Fische, dann die Fischstäbchen und zum Schluss die Pinken fressen.\nDen Geisterhai kannst du von Anfang an fressen, aber nimm dich in acht: Er nimmt dir deine Größe wieder!\nDie Plastiktüte entsteht, wenn du ein Fischstäbchen frisst und diese wird dich immer töten.\nViel Spaß:)");
-
+        
     }
     export function spielStart(): void {//die Fische werden gezeichnet und die Update gestartet
+        alert("Dein Fisch(Gerippe):\nlässt sich mit den Pfeiltasten bewegen\nZiel:\nVersuche die anderen Fische zu fressen und an ihnen zu wachsen, ansonsten weiche ihnen aus.\nAuch die Blubberblasen können dir helfen zu wachsen.\nZuerst kannst du die lila Fische, dann die Fischstäbchen und zum Schluss die Pinken fressen.\nDen Geisterhai kannst du von Anfang an fressen, aber nimm dich in acht: Er nimmt dir deine Größe wieder!\nDie Plastiktüte entsteht, wenn du ein Fischstäbchen frisst und diese wird dich immer töten.\nViel Spaß:)");
 
         for (let i: number = 0; i < 15; i++) {//glücklich
             grins = new Gluecklich();
@@ -52,10 +52,10 @@ namespace Endabgabe {
             alles.push(fischstab);
         }
 
-        //for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
-           // blubBlub = new BlubStrom();
-           // alles.push(blubBlub);
-        //}
+        for (let i: number = 0; i < 80; i++) {//Blubberblasen Strom
+            blubBlub = new BlubStrom();
+            alles.push(blubBlub);
+        }
 
         meiner = new Meiner();//der Fisch des Spielers
         alles.push(meiner);
@@ -126,13 +126,13 @@ namespace Endabgabe {
                         grins = new Gluecklich();
                         alles.push(grins);
                     }
-                    /*else if (alles[i] instanceof BlubStrom) {
+                    else if (alles[i] instanceof BlubStrom) {
                         alles.splice(i, 1);
                         meiner.t += 0.1;//der Typ des Fisches wird größer
                         punkte += 0.5;
                         blubBlub = new BlubStrom();
                         alles.push(blubBlub);
-                    }*/
+                    }
                     else if (alles[i] instanceof Tuete) {
                         stopAnimation();
                         alert("Plastik ist einfach nicht gesund");
